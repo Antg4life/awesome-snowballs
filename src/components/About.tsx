@@ -127,11 +127,6 @@ export default function About() {
 
             {/* Big fun banner */}
             <div className="col-span-2 bg-fun-gradient rounded-2xl p-6 text-white text-center relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-around opacity-20 pointer-events-none">
-                {"🍧❄️🌈🍓".split("").map((ch, i) => (
-                  <span key={i} className="text-5xl">{ch}</span>
-                ))}
-              </div>
               <p className="font-display text-4xl relative z-10">Follow Our Route!</p>
               <p className="text-white/80 mt-1 text-sm relative z-10">
                 Check Instagram for daily locations & specials

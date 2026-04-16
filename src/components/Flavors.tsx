@@ -168,11 +168,6 @@ export default function Flavors() {
 
         {/* Add-ons banner */}
         <div className="mt-16 bg-gradient-to-r from-brand-dark via-brand-blue to-brand-cyan rounded-3xl p-8 text-white text-center relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {["🍦","🍒","🥭","🍋"].map((e, i) => (
-              <span key={i} className="absolute text-3xl opacity-20" style={{ left: `${10 + i * 25}%`, top: "50%", transform: "translateY(-50%)" }}>{e}</span>
-            ))}
-          </div>
           <h3 className="font-display text-3xl mb-2 relative z-10">Make It Extra Awesome</h3>
           <p className="text-white/80 mb-4 relative z-10">Customize your snoball with premium add-ons</p>
           <div className="flex flex-wrap justify-center gap-3 relative z-10">

@@ -1,17 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ChevronDown, Star, Sparkles } from "lucide-react";
-
-const floatingEmojis = ["🍧", "❄️", "🌈", "🍓", "🥭", "🍋", "🫐", "🍑", "🍒", "🍉"];
+import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const scrollToFlavors = () => {
     document.querySelector("#flavors")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -21,36 +12,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient"
     >
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute top-20 left-10 w-72 h-72 bg-brand-pink/20 rounded-full blur-3xl" />
-        <div className="blob absolute bottom-20 right-10 w-96 h-96 bg-brand-yellow/15 rounded-full blur-3xl" style={{ animationDelay: "2s" }} />
-        <div className="blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-cyan/20 rounded-full blur-2xl" style={{ animationDelay: "4s" }} />
-      </div>
-
-      {/* Floating emojis */}
-      {mounted && floatingEmojis.map((emoji, i) => (
-        <div
-          key={i}
-          className="absolute pointer-events-none select-none text-3xl md:text-4xl opacity-70"
-          style={{
-            left:              `${5 + (i * 9) % 90}%`,
-            top:               `${10 + (i * 13) % 75}%`,
-            animation:         `float ${3 + (i % 3)}s ease-in-out ${i * 0.5}s infinite`,
-            animationFillMode: "both",
-          }}
-        >
-          {emoji}
-        </div>
-      ))}
-
-      {/* Star decorations */}
-      <div className="absolute top-32 right-1/4 animate-spin-slow opacity-60">
-        <Sparkles className="w-8 h-8 text-brand-yellow" />
-      </div>
-      <div className="absolute bottom-40 left-1/4 animate-bounce-slow opacity-60" style={{ animationDelay: "1s" }}>
-        <Star className="w-6 h-6 text-brand-pink fill-brand-pink" />
-      </div>
 
       {/* Main content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
@@ -94,26 +55,12 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Hero photo */}
-        <div className="mt-10 flex justify-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
-          <div className="relative">
-            <img
-              src="/SnoballGirl%20Eating.jpg"
-              alt="Girl enjoying an Awesome Snoball"
-              className="w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover shadow-2xl border-4 border-white/30"
-            />
-            <div className="absolute -bottom-2 -right-2 bg-brand-yellow text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">
-              24 Amazing Flavors!
-            </div>
-          </div>
-        </div>
-
         {/* Stats row */}
         <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.9s" }}>
           {[
             { value: "24",   label: "Flavors" },
             { value: "5★",   label: "Rated" },
-            { value: "∞",    label: "Smiles" },
+            { value: "DMV",  label: "Area" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="font-display text-3xl text-brand-yellow">{stat.value}</div>
