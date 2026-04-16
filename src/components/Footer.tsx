@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Snowflake, Instagram, Facebook, Heart } from "lucide-react";
 
@@ -64,9 +66,12 @@ export default function Footer() {
                   <div className="font-display text-xl text-brand-yellow -mt-1">Snoballs</div>
                 </div>
               </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-5">
-                Louisiana-style shaved ice made with love, served with joy — one awesome snoball at a time.
+              <p className="text-white/60 text-sm leading-relaxed mb-3">
+                Hawaiian Shave Ice · Ice Cream · Cotton Candy · Cold Drinks — delivered to you!
               </p>
+              <a href="tel:+14432813331" className="text-brand-yellow font-bold text-sm hover:underline block mb-4">
+                443-281-3331
+              </a>
               {/* Social icons */}
               <div className="flex gap-3">
                 {social.map((s) => {

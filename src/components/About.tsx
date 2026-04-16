@@ -52,20 +52,26 @@ export default function About() {
               <br />to You
             </h2>
             <p className="text-gray-600 text-lg mb-5 leading-relaxed">
-              Awesome Snoballs started with a simple dream — to bring authentic Louisiana-style
-              shaved ice to our neighbors with 100+ incredible flavors and pure, icy perfection.
+              Awesome Snoballs is Maryland&apos;s premier mobile Sno Ball truck — serving Maryland,
+              Washington DC, and the entire DMV Area with 24 incredible flavors, real fruit syrups,
+              and pure icy perfection delivered straight to you.
+            </p>
+            <p className="text-gray-600 text-lg mb-5 leading-relaxed">
+              We serve Hawaiian Shave Ice, Ice Cream, Cotton Candy, and Cold Drinks. Our snoballs
+              are fluffier than snow cones and more flavorful than slushies — made with the care
+              only a family business can deliver.
             </p>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Our snoballs are fluffier than snow cones, more flavorful than slushies, and made
-              with the kind of care that only a family business can deliver. Whether you&apos;re
-              8 or 80, there&apos;s a snoball waiting with your name on it.
+              Whether it&apos;s a birthday party, school event, corporate gathering, or just a
+              hot summer day — we bring the cool to you. Call or text us at{" "}
+              <a href="tel:+14432813331" className="font-bold text-brand-blue hover:underline">443-281-3331</a>.
             </p>
 
             {/* Signature flavors highlight */}
             <div className="bg-white rounded-2xl p-5 shadow-md border border-brand-cyan/20 mb-6">
               <p className="font-bold text-brand-dark mb-3 text-sm uppercase tracking-wide">Our Legendary Signatures:</p>
               <div className="flex flex-wrap gap-2">
-                {["Tiger's Blood", "Bahama Mama", "Rainbow", "Wedding Cake", "Shark Attack"].map((f) => (
+                {["Egg Custard", "Tiger's Blood", "Bahama Mama", "Rainbow", "Wedding Cake", "Shark Attack"].map((f) => (
                   <span key={f} className="px-3 py-1 bg-brand-cyan/15 text-brand-blue text-sm font-semibold rounded-full">
                     {f}
                   </span>
@@ -92,7 +98,15 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: Values grid */}
+          {/* Right: Truck photo + Values grid */}
+          <div className="flex flex-col gap-4">
+            <div className="rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="/thumbnail-1.jpeg"
+                alt="Awesome Snoballs Truck"
+                className="w-full h-56 object-cover"
+              />
+            </div>
           <div className="grid grid-cols-2 gap-4">
             {values.map((v, i) => {
               const Icon = v.icon;
@@ -131,6 +145,7 @@ export default function About() {
                 @awesomesnoballs
               </a>
             </div>
+          </div>
           </div>
         </div>
       </div>

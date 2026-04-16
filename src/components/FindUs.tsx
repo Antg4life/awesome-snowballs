@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin, Clock, Phone, Calendar, Instagram, Facebook } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const hours = [
   { day: "Monday",    time: "Closed" },
@@ -13,7 +14,8 @@ const hours = [
 ];
 
 export default function FindUs() {
-  const today = new Date().getDay(); // 0 = Sunday
+  const [today, setToday] = useState(-1);
+  useEffect(() => { setToday(new Date().getDay()); }, []);
 
   return (
     <section id="find-us" className="py-24 bg-white relative overflow-hidden">
@@ -116,9 +118,14 @@ export default function FindUs() {
                 <Calendar className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-xl mb-2">Events & Private Parties</h3>
-              <p className="text-white/80 mb-5 text-sm">
-                Book Awesome Snoballs for your birthday party, corporate event, school function, or neighborhood block party!
+              <p className="text-white/80 mb-3 text-sm">
+                Book Awesome Snoballs for your next event!
               </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {["Corporate Events","Private Parties","School Events","Sporting Events","Festivals","Fundraisers"].map((e) => (
+                  <span key={e} className="px-3 py-1 bg-white/20 rounded-full text-xs font-semibold">{e}</span>
+                ))}
+              </div>
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
@@ -135,8 +142,8 @@ export default function FindUs() {
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Give us a call or text!</p>
-                <a href="tel:+1" className="font-bold text-brand-dark text-lg hover:text-brand-blue transition-colors">
-                  Check our Facebook for contact info
+                <a href="tel:+14432813331" className="font-bold text-brand-dark text-lg hover:text-brand-blue transition-colors">
+                  443-281-3331
                 </a>
               </div>
             </div>

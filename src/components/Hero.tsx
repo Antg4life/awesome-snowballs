@@ -57,7 +57,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 glass px-5 py-2.5 rounded-full text-white text-sm font-semibold mb-8 animate-fade-in">
           <span className="w-2 h-2 bg-brand-yellow rounded-full animate-pulse" />
-          Louisiana&apos;s Finest Shaved Ice Experience
+          Maryland&apos;s Premier Mobile Sno Ball Truck — Serving MD, DC &amp; DMV
           <span className="w-2 h-2 bg-brand-pink rounded-full animate-pulse" />
         </div>
 
@@ -73,8 +73,8 @@ export default function Hero() {
           Cool Off. Sweeten Up. Live Awesome.
         </p>
         <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          Hand-crafted Louisiana-style snoballs in 100+ amazing flavors.
-          From classic cherry to tropical mango — every bite is pure joy!
+          Hand-crafted snoballs in 24 amazing flavors including our famous Egg Custard!
+          Serving Maryland, Washington DC and the entire DMV Area.
         </p>
 
         {/* CTA Buttons */}
@@ -94,10 +94,24 @@ export default function Hero() {
           </button>
         </div>
 
+        {/* Hero photo */}
+        <div className="mt-10 flex justify-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
+          <div className="relative">
+            <img
+              src="/SnoballGirl%20Eating.jpg"
+              alt="Girl enjoying an Awesome Snoball"
+              className="w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover shadow-2xl border-4 border-white/30"
+            />
+            <div className="absolute -bottom-2 -right-2 bg-brand-yellow text-brand-dark font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">
+              24 Amazing Flavors!
+            </div>
+          </div>
+        </div>
+
         {/* Stats row */}
-        <div className="mt-16 grid grid-cols-3 gap-4 max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.9s" }}>
+        <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.9s" }}>
           {[
-            { value: "100+", label: "Flavors" },
+            { value: "24",   label: "Flavors" },
             { value: "5★",   label: "Rated" },
             { value: "∞",    label: "Smiles" },
           ].map((stat) => (

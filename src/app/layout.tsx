@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Awesome Snoballs | Louisiana's Finest Shaved Ice",
-  description: "Experience the coolest snoballs in town! Awesome Snoballs serves Louisiana-style shaved ice with 100+ flavors, cream, and specialty toppings. Find us on our route!",
-  keywords: ["snoballs", "shaved ice", "Louisiana", "flavors", "awesome snoballs", "snowballs"],
+  title: "Awesome Snoballs | #1 Mobile Sno Ball Truck in Maryland & DMV Area",
+  description: "Awesome Snoballs is Maryland's premier mobile Sno Ball provider serving Maryland, Washington DC, and the DMV Area. 24 amazing flavors including Egg Custard, Tiger's Blood, Bahama Mama and more. Book us for events, parties & festivals!",
+  keywords: ["snoballs", "shaved ice", "Maryland", "DMV", "Washington DC", "mobile sno ball", "sno ball truck Maryland", "shaved ice Maryland", "egg custard snoball", "awesome snoballs", "sno ball DMV", "Maryland shaved ice truck"],
   openGraph: {
-    title: "Awesome Snoballs",
-    description: "Louisiana's Finest Shaved Ice Experience",
+    title: "Awesome Snoballs | Maryland's Premier Mobile Sno Ball Truck",
+    description: "Maryland's premier mobile Sno Ball provider serving Maryland, Washington DC and the DMV Area. 24 flavors including Egg Custard!",
     type: "website",
     url: "https://www.awesomesnoballs.com",
   },

@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Home",    href: "#home" },
   { label: "Flavors", href: "#flavors" },
   { label: "About",   href: "#about" },
+  { label: "Schools", href: "/schools/" },
   { label: "Find Us", href: "#find-us" },
   { label: "Contact", href: "#contact" },
 ];
@@ -45,10 +46,11 @@ export default function Navigation() {
             className="flex items-center gap-2 group"
           >
             <div className="relative">
-              <div className="w-10 h-10 bg-brand-yellow rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Snowflake className="w-6 h-6 text-brand-dark" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-brand-pink rounded-full animate-bounce-slow" />
+              <img
+                src="/Snoball%20Logo1.jpg"
+                alt="Awesome Snoballs Logo"
+                className="w-12 h-12 rounded-full object-cover group-hover:scale-110 transition-transform shadow-lg"
+              />
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-display text-xl text-white">Awesome</span>
@@ -59,13 +61,23 @@ export default function Navigation() {
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className="px-4 py-2 text-white/90 hover:text-brand-yellow font-semibold text-sm transition-colors duration-200 rounded-full hover:bg-white/10"
-              >
-                {link.label}
-              </button>
+              link.href.startsWith("/") ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="px-4 py-2 text-white/90 hover:text-brand-yellow font-semibold text-sm transition-colors duration-200 rounded-full hover:bg-white/10"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="px-4 py-2 text-white/90 hover:text-brand-yellow font-semibold text-sm transition-colors duration-200 rounded-full hover:bg-white/10"
+                >
+                  {link.label}
+                </button>
+              )
             ))}
             <button
               onClick={() => handleNavClick("#find-us")}
@@ -94,13 +106,23 @@ export default function Navigation() {
       >
         <div className="bg-brand-dark/95 backdrop-blur-md border-t border-white/10 px-4 py-4 space-y-1">
           {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleNavClick(link.href)}
-              className="block w-full text-left px-4 py-3 text-white/90 hover:text-brand-yellow font-semibold rounded-xl hover:bg-white/10 transition-colors"
-            >
-              {link.label}
-            </button>
+            link.href.startsWith("/") ? (
+              <a
+                key={link.label}
+                href={link.href}
+                className="block w-full text-left px-4 py-3 text-white/90 hover:text-brand-yellow font-semibold rounded-xl hover:bg-white/10 transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => handleNavClick(link.href)}
+                className="block w-full text-left px-4 py-3 text-white/90 hover:text-brand-yellow font-semibold rounded-xl hover:bg-white/10 transition-colors"
+              >
+                {link.label}
+              </button>
+            )
           ))}
           <button
             onClick={() => handleNavClick("#find-us")}
