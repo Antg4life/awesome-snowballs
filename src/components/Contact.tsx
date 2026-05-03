@@ -26,78 +26,84 @@ export default function Contact() {
             method="POST"
             className="space-y-5"
           >
-            <input type="hidden" name="_subject" value="New Contact Form Submission — Awesome Snoballs" />
+            <input type="hidden" name="_subject" value="🍧 NEW INQUIRY — Awesome Snoballs" />
             <input type="hidden" name="_next" value="https://www.awesomesnoballs.com/thank-you/" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
 
-            {/* Subject */}
+            {/* Inquiry Type */}
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-1.5">What can we help with?</label>
-              <select
-                name="subject"
-                defaultValue="general"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white"
-              >
-                <option value="general">General Question</option>
-                <option value="event">Book for an Event / Party</option>
-                <option value="catering">Catering Inquiry</option>
-                <option value="flavors">Flavor Question</option>
-                <option value="other">Other</option>
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">What can we help with? *</label>
+              <select name="inquiry_type" required
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
+                <option value="">Select...</option>
+                <option value="Book for an Event / Party">Book for an Event / Party</option>
+                <option value="School / Field Day Inquiry">School / Field Day Inquiry</option>
+                <option value="Fundraiser Inquiry">Fundraiser Inquiry</option>
+                <option value="General Question">General Question</option>
+                <option value="Flavor Question">Flavor Question</option>
+                <option value="Other">Other</option>
               </select>
             </div>
 
-            {/* Name + Email */}
+            {/* Name + Phone */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Your Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Jane Smith"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all"
-                />
+                <input type="text" name="name" required placeholder="Jane Smith"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="jane@email.com"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all"
-                />
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
+                <input type="tel" name="phone" required placeholder="(555) 123-4567"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
               </div>
             </div>
 
-            {/* Phone */}
+            {/* Email */}
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone (optional)</label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="(555) 123-4567"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all"
-              />
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">Email Address *</label>
+              <input type="email" name="email" required placeholder="jane@email.com"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
+            </div>
+
+            {/* Event Date + Guest Count */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Date (if booking)</label>
+                <input type="date" name="event_date"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Expected Guests (if booking)</label>
+                <select name="guest_count"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
+                  <option value="">Select...</option>
+                  <option value="Under 50">Under 50</option>
+                  <option value="50–100">50–100</option>
+                  <option value="100–150">100–150</option>
+                  <option value="150+">150+</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Event Address */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Address (if booking)</label>
+              <input type="text" name="event_address" placeholder="123 Main St, Baltimore, MD 21201"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
             </div>
 
             {/* Message */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Message *</label>
-              <textarea
-                name="message"
-                required
-                rows={5}
-                placeholder="Tell us more — event date, expected guests, questions about our flavors..."
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all resize-none"
-              />
+              <textarea name="message" required rows={4}
+                placeholder="Tell us more about your event or question..."
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all resize-none" />
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-dark hover:to-brand-blue text-white font-bold text-lg rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/30"
-            >
+            <button type="submit"
+              className="w-full py-4 bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-dark hover:to-brand-blue text-white font-bold text-lg rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/30">
               Send Message
             </button>
           </form>
