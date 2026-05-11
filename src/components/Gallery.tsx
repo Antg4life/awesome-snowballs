@@ -1,18 +1,14 @@
 "use client";
 
 const photos = [
-  { src: "/event-truck.png",          alt: "Awesome Snoballs truck at event",       size: "large" },
-  { src: "/event-school-crowd.png",   alt: "School fundraiser crowd",               size: "small" },
-  { src: "/event-night-lights.png",   alt: "Night event with LED lights",           size: "small" },
-  { src: "/event-backyard-party.png", alt: "Baltimore backyard party",              size: "small" },
-  { src: "/event-snoballs.png",       alt: "Colorful snoballs",                     size: "small" },
-  { src: "/event-awesome.png",        alt: "Awesome Snoballs event",                size: "large" },
-  { src: "/thumbnail-1.jpeg",         alt: "Awesome Snoballs truck",                size: "small" },
-  { src: "/SnoballGirl%20Eating.jpg", alt: "Girl enjoying a snoball",               size: "small" },
-  { src: "/ai-making.jpg",            alt: "Fresh snoball being made",              size: "small" },
-  { src: "/ai-celebration.jpg",       alt: "Kids celebrating with snoballs",        size: "large" },
-  { src: "/2023-06-24-2.jpg",         alt: "Happy customers at Awesome Snoballs",   size: "small" },
-  { src: "/thumbnail-2.jpeg",         alt: "Colorful Hawaiian shaved ice",          size: "small" },
+  { src: "/event-night-lights.png",   alt: "Awesome Snoballs night event with LED lights", size: "large" },
+  { src: "/SnoballGirl%20Eating.jpg", alt: "Girl enjoying a snoball",                      size: "small" },
+  { src: "/event-school-crowd.png",   alt: "School fundraiser crowd",                      size: "small" },
+  { src: "/thumbnail-1.jpeg",         alt: "Awesome Snoballs truck",                       size: "small" },
+  { src: "/event-snoballs.png",       alt: "Colorful snoballs close up",                   size: "small" },
+  { src: "/event-truck.png",          alt: "Truck at balloon event with happy kids",       size: "large" },
+  { src: "/2023-06-24-2.jpg",         alt: "Happy customers at Awesome Snoballs",          size: "small" },
+  { src: "/thumbnail-2.jpeg",         alt: "Colorful Hawaiian shaved ice",                 size: "small" },
 ];
 
 export default function Gallery() {
