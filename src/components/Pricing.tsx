@@ -577,7 +577,7 @@ export default function Pricing() {
 
             {/* Quick-quote math helper */}
             <div className="mt-5 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4">
-              <p className="text-sm font-bold text-amber-800 mb-2">Quick Quote Example — 100 Students, Snoballs + Ice Cream Bars:</p>
+              <p className="text-sm font-bold text-amber-800 mb-2">Example — 100 Students, Snoballs + Ice Cream Bars:</p>
               <div className="grid sm:grid-cols-4 gap-2 text-sm text-amber-900">
                 <p>School Celebration (80 students) <span className="font-bold float-right">$300</span></p>
                 <p>+ 20 extra students × $4.50 <span className="font-bold float-right">$90</span></p>

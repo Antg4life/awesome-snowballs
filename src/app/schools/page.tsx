@@ -364,7 +364,7 @@ export default function SchoolsPage() {
             <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-6">
               <p className="font-bold text-amber-900 mb-5 flex items-center gap-2 text-base">
                 <span className="text-xl">🧮</span>
-                Quick Quote Reference — Use This When a Principal Calls
+                Pricing Examples — See How Easy It Is to Build Your Package
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 <div>
