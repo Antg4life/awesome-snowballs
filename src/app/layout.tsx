@@ -35,7 +35,61 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FoodEstablishment",
+              "name": "Awesome Snoballs",
+              "description": "Maryland's #1 mobile snoball truck serving Hawaiian shaved ice at events, field days, birthday parties, and festivals across MD, DC and the DMV area.",
+              "url": "https://www.awesomesnoballs.com",
+              "telephone": "+14432813331",
+              "email": "awesomesnoballs@yahoo.com",
+              "priceRange": "$–$$",
+              "servesCuisine": "Hawaiian Shaved Ice",
+              "areaServed": [
+                { "@type": "State", "name": "Maryland" },
+                { "@type": "City",  "name": "Washington DC" },
+                { "@type": "State", "name": "Virginia" },
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Baltimore",
+                "addressRegion": "MD",
+                "addressCountry": "US",
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.2904,
+                "longitude": -76.6122,
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Friday","Saturday","Sunday"],
+                "opens": "11:00",
+                "closes": "20:00",
+              },
+              "sameAs": [
+                "https://www.facebook.com/p/Awesome-Snoballs-100087910179058/",
+                "https://www.instagram.com/awesomesnoballs/",
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Snoball Menu",
+                "itemListElement": [
+                  { "@type": "Offer", "name": "Small Snoball 4oz",    "price": "3.00", "priceCurrency": "USD" },
+                  { "@type": "Offer", "name": "Medium Snoball 8oz",   "price": "4.00", "priceCurrency": "USD" },
+                  { "@type": "Offer", "name": "Large Snoball 16oz",   "price": "5.00", "priceCurrency": "USD" },
+                  { "@type": "Offer", "name": "Souvenir Snoball 20oz","price": "6.00", "priceCurrency": "USD" },
+                ],
+              },
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
