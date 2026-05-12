@@ -212,9 +212,9 @@ export default function SchoolsPage() {
           </div>
           {/* Trust bar */}
           <div className="mt-12 flex flex-wrap justify-center gap-6 text-white/80 text-sm font-semibold">
-            <span className="flex items-center gap-1.5">✓ Zero setup work for your staff</span>
-            <span className="flex items-center gap-1.5">✓ 24 flavors included</span>
-            <span className="flex items-center gap-1.5">✓ Fundraiser option earns your school 25%</span>
+            <span className="flex items-center gap-1.5">✓ We handle setup, service & cleanup</span>
+            <span className="flex items-center gap-1.5">✓ 24 flavors — always included</span>
+            <span className="flex items-center gap-1.5">✓ On-time arrival guaranteed</span>
             <span className="flex items-center gap-1.5">✓ Serving MD, DC &amp; DMV</span>
           </div>
         </div>
@@ -237,20 +237,91 @@ export default function SchoolsPage() {
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
 
-            {/* OPTION A — Fundraiser */}
+            {/* HOST-PAID — primary, shown first */}
+            <div className="bg-gradient-to-br from-brand-blue to-brand-cyan rounded-3xl p-8 text-white relative overflow-hidden flex flex-col">
+              <div className="absolute -top-10 -right-10 w-56 h-56 bg-white/10 rounded-full pointer-events-none" />
+              <div className="relative flex-1">
+                <div className="inline-block bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
+                  Flat-Rate School Package
+                </div>
+                <h3 className="font-display text-4xl mb-2">Every Student Gets One 🍧</h3>
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  One flat price covers everything — the truck, the staff, all 24 flavors, cups, spoons, setup, and breakdown.
+                  Every student walks away with a snoball. No surprises, no hassle.
+                </p>
+
+                {/* Package table */}
+                <div className="rounded-2xl overflow-hidden mb-5 border border-white/20">
+                  <div className="grid grid-cols-4 bg-white/10 text-xs font-bold text-white/70 uppercase tracking-wide px-4 py-3">
+                    <span>Package</span>
+                    <span className="text-center">Time</span>
+                    <span className="text-center">Students</span>
+                    <span className="text-right">Price</span>
+                  </div>
+                  {hostPackages.map((pkg) => (
+                    <div
+                      key={pkg.name}
+                      className={`grid grid-cols-4 items-center px-4 py-4 border-t border-white/10 ${
+                        pkg.popular ? "bg-white/10" : ""
+                      }`}
+                    >
+                      <span className="flex items-center gap-1.5 font-bold text-white text-sm">
+                        {pkg.emoji} {pkg.name}
+                        {pkg.popular && (
+                          <span className="hidden sm:inline text-[10px] bg-brand-yellow text-brand-dark font-bold px-1.5 py-0.5 rounded-full ml-1">
+                            Popular
+                          </span>
+                        )}
+                      </span>
+                      <span className="text-center text-white/70 text-sm">{pkg.time}</span>
+                      <span className="text-center text-white/70 text-xs">{pkg.students}</span>
+                      <div className="text-right">
+                        <p className="font-display text-brand-yellow text-xl">{pkg.price}</p>
+                        <p className="text-white/50 text-[10px]">{pkg.perStudent}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 mb-6">
+                  <p className="text-xs font-bold text-white/70 uppercase tracking-wide mb-2">Everything included — zero extras:</p>
+                  <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
+                    {[
+                      "Truck, staff & all equipment",
+                      "All 24 flavors",
+                      "Cups, spoons & napkins",
+                      "Setup & full cleanup",
+                      "On-time arrival",
+                      "No hidden fees",
+                    ].map((item) => (
+                      <p key={item} className="text-xs text-white/80 flex items-center gap-1.5">
+                        <span className="text-brand-yellow font-bold">✓</span> {item}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <a
+                href="/booking/?package=School"
+                className="w-full py-4 bg-brand-yellow text-brand-dark font-bold rounded-full text-center text-lg hover:opacity-90 transition-opacity shadow-xl block"
+              >
+                Book a School Package
+              </a>
+            </div>
+
+            {/* FUNDRAISER */}
             <div className="bg-gradient-to-br from-brand-pink to-brand-coral rounded-3xl p-8 text-white relative overflow-hidden flex flex-col">
               <div className="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full pointer-events-none" />
               <div className="relative flex-1">
                 <div className="inline-block bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
-                  Option A · Most Popular
+                  Free Fundraiser Option
                 </div>
-                <h3 className="font-display text-4xl mb-1">Free Fundraiser</h3>
-                <p className="font-display text-7xl text-white mb-1 leading-none">$0</p>
-                <p className="text-white/80 font-bold mb-5">No cost to your school — ever.</p>
+                <h3 className="font-display text-4xl mb-2">Earn Money for Your School 💰</h3>
+                <p className="font-display text-6xl text-white mb-1 leading-none">$0</p>
+                <p className="text-white/80 font-bold mb-5">No cost to your school.</p>
                 <p className="text-white/90 text-sm leading-relaxed mb-6">
-                  Students pay for their own snoballs on the day of the event.
-                  Your school automatically receives <strong className="text-white text-base">25% of every dollar collected</strong>.
-                  We hand you a check before we leave.
+                  Students purchase their own snoball on the day of the event.
+                  Your school receives <strong className="text-white">25% of every dollar collected</strong> — we hand you a check before we leave.
                 </p>
                 <ul className="space-y-2.5 mb-8">
                   {[
@@ -258,8 +329,7 @@ export default function SchoolsPage() {
                     "We bring the truck, staff & all supplies",
                     "Students pay $4–$5 per snoball on-site",
                     "Your school earns 25% of total sales",
-                    "100-student event = ~$100+ back to your school",
-                    "Perfect for field days, spirit nights & carnivals",
+                    "Great for PTA nights, carnivals & spirit events",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm text-white/90">
                       <span className="mt-0.5 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
@@ -272,78 +342,7 @@ export default function SchoolsPage() {
                 href="/booking/?package=Fundraiser"
                 className="w-full py-4 bg-white text-brand-pink font-bold rounded-full text-center text-lg hover:bg-brand-dark hover:text-white transition-all duration-300 shadow-xl block"
               >
-                Book a Free Fundraiser
-              </a>
-            </div>
-
-            {/* OPTION B — Host-Paid */}
-            <div className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl p-8 flex flex-col">
-              <div className="flex-1">
-                <div className="inline-block bg-brand-blue/10 text-brand-blue font-bold text-xs px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
-                  Option B · School Pays
-                </div>
-                <h3 className="font-display text-4xl text-brand-dark mb-1">Flat-Rate Package</h3>
-                <p className="text-gray-500 mb-6 leading-relaxed">
-                  Your school pays one flat rate — every student gets a free snoball included.
-                  No per-student counting on event day. Simple.
-                </p>
-
-                {/* Package table */}
-                <div className="rounded-2xl overflow-hidden border border-gray-100 mb-5">
-                  <div className="grid grid-cols-4 bg-gray-50 text-xs font-bold text-gray-500 uppercase tracking-wide px-4 py-3">
-                    <span>Package</span>
-                    <span className="text-center">Time</span>
-                    <span className="text-center">Students</span>
-                    <span className="text-right">Price</span>
-                  </div>
-                  {hostPackages.map((pkg) => (
-                    <div
-                      key={pkg.name}
-                      className={`grid grid-cols-4 items-center px-4 py-4 border-t border-gray-100 ${
-                        pkg.popular ? "bg-brand-blue/5" : ""
-                      }`}
-                    >
-                      <span className="flex items-center gap-1.5 font-bold text-brand-dark text-sm">
-                        {pkg.emoji} {pkg.name}
-                        {pkg.popular && (
-                          <span className="hidden sm:inline text-[10px] bg-brand-yellow text-brand-dark font-bold px-1.5 py-0.5 rounded-full ml-1">
-                            Popular
-                          </span>
-                        )}
-                      </span>
-                      <span className="text-center text-gray-500 text-sm">{pkg.time}</span>
-                      <span className="text-center text-gray-500 text-xs">{pkg.students}</span>
-                      <div className="text-right">
-                        <p className="font-display text-brand-blue text-xl">{pkg.price}</p>
-                        <p className="text-gray-400 text-[10px]">{pkg.perStudent}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Always included — no extra charges:</p>
-                  <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
-                    {[
-                      "Truck, staff & all equipment",
-                      "All 24 flavors",
-                      "Cups, spoons & napkins",
-                      "Setup & full cleanup",
-                      "On-time arrival",
-                      "No hidden fees",
-                    ].map((item) => (
-                      <p key={item} className="text-xs text-gray-600 flex items-center gap-1.5">
-                        <span className="text-green-500 font-bold">✓</span> {item}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <a
-                href="/booking/?package=School"
-                className="w-full py-4 bg-brand-blue text-white font-bold rounded-full text-center text-lg hover:bg-brand-dark transition-colors block"
-              >
-                Book a School Package
+                Book a Fundraiser
               </a>
             </div>
           </div>
@@ -516,15 +515,11 @@ export default function SchoolsPage() {
           <div className="bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-5 flex gap-4 items-start">
             <span className="text-3xl shrink-0">💡</span>
             <div>
-              <p className="font-bold text-brand-dark mb-1">Fundraiser Events Are Different</p>
+              <p className="font-bold text-brand-dark mb-1">Note on Fundraiser Events</p>
               <p className="text-gray-600 text-sm leading-relaxed">
-                The 80% minimum only applies to <strong>host-paid packages</strong> where your school pays upfront.
-                For our <strong>free fundraiser option</strong>, students pay individually on the day — so there&apos;s
-                no minimum, no risk, and no billing surprises. Many schools prefer the fundraiser model for this reason.
+                The 80% minimum applies to <strong>host-paid packages</strong> only.
+                For fundraiser events where students pay individually, no minimum applies since there is no upfront school payment.
               </p>
-              <a href="#pricing" className="text-brand-blue font-bold text-xs hover:underline mt-2 inline-block">
-                Compare both options above ↑
-              </a>
             </div>
           </div>
 
