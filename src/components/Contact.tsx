@@ -29,7 +29,8 @@ export default function Contact() {
             <input type="hidden" name="_subject" value="🍧 NEW INQUIRY — Awesome Snoballs" />
             <input type="hidden" name="_next" value="https://www.awesomesnoballs.com/thank-you/" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="text" name="_honey" style={{display:"none"}} />
 
             {/* Inquiry Type */}
             <div>

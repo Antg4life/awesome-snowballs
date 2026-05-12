@@ -47,7 +47,8 @@ export default function BookingPage() {
             <input type="hidden" name="_subject" value="🍧 NEW BOOKING REQUEST — Awesome Snoballs" />
             <input type="hidden" name="_next" value="https://www.awesomesnoballs.com/thank-you/" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="text" name="_honey" style={{display:"none"}} />
 
             {/* Contact Info */}
             <h2 className="font-bold text-brand-dark text-base border-b border-gray-100 pb-2">Contact Information</h2>

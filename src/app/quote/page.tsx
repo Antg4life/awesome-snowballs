@@ -129,7 +129,8 @@ export default function QuotePage() {
             <input type="hidden" name="_subject" value="New School Quote Request — Awesome Snoballs" />
             <input type="hidden" name="_next" value="https://www.awesomesnoballs.com/thank-you/" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="text" name="_honey" style={{display:"none"}} />
             <input type="hidden" name="estimated_students" value={students} />
             <input type="hidden" name="estimated_total" value={`$${grandTotal.toFixed(2)}`} />
 
