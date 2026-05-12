@@ -170,31 +170,48 @@ const donutPackages = [
 
 const lemonadeEventPackages = [
   {
-    name:     "Starter",
-    emoji:    "🍋",
-    guests:   "Up to 50 Cups",
-    price:    "$250",
-    note:     "~$5 per cup",
-    flavors:  ["Original Fresh Squeezed", "1 Flavored Option"],
-    popular:  false,
+    name:          "Mini",
+    emoji:         "🍋",
+    guests:        "25 Cups",
+    perCup:        "~$6 / cup",
+    original:      "$150",
+    flavored:      "$175",
+    flavoredExtra: "+$25 for flavored",
+    includes:      ["Original Fresh Squeezed", "1 Flavored Option", "Cups & straws included", "Machine & operator on-site"],
+    popular:       false,
   },
   {
-    name:     "Standard",
-    emoji:    "🍋",
-    guests:   "Up to 100 Cups",
-    price:    "$425",
-    note:     "~$4.25 per cup",
-    flavors:  ["Original Fresh Squeezed", "2 Flavored Options", "Cups & straws included"],
-    popular:  true,
+    name:          "Starter",
+    emoji:         "🍋",
+    guests:        "50 Cups",
+    perCup:        "~$5 / cup",
+    original:      "$250",
+    flavored:      "$300",
+    flavoredExtra: "+$50 for flavored",
+    includes:      ["Original Fresh Squeezed", "1 Flavored Option", "Cups & straws included", "Machine & operator on-site", "Setup & cleanup"],
+    popular:       false,
   },
   {
-    name:     "Premium",
-    emoji:    "🍋",
-    guests:   "Up to 200 Cups",
-    price:    "$699",
-    note:     "~$3.50 per cup",
-    flavors:  ["Original Fresh Squeezed", "All Flavored Options", "Cups & straws included", "Refill station option"],
-    popular:  false,
+    name:          "Standard",
+    emoji:         "🍋",
+    guests:        "100 Cups",
+    perCup:        "~$4.25 / cup",
+    original:      "$425",
+    flavored:      "$500",
+    flavoredExtra: "+$75 for flavored",
+    includes:      ["Original Fresh Squeezed", "2 Flavored Options", "Cups & straws included", "Machine & operator on-site", "Setup & cleanup"],
+    popular:       true,
+  },
+  {
+    name:          "Premium",
+    emoji:         "🍋",
+    guests:        "200 Cups",
+    perCup:        "~$3.50 / cup",
+    original:      "$699",
+    flavored:      "$825",
+    flavoredExtra: "+$126 for flavored",
+    includes:      ["Original Fresh Squeezed", "All Flavored Options", "Cups & straws included", "Machine & operator on-site", "Setup & cleanup", "Refill station option"],
+    popular:       false,
   },
 ];
 
@@ -789,13 +806,13 @@ export default function Pricing() {
             <h4 className="font-bold text-xl text-brand-dark text-center mb-2">Add Lemonade to Your Event</h4>
             <p className="text-center text-gray-500 text-sm mb-8">
               One flat rate covers the machine, fresh lemons, cups, straws, and our operator.
-              Bundle with snoballs and save $25.
+              Flavored lemonade is a small upcharge — shown clearly on every package.
             </p>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {lemonadeEventPackages.map((pkg) => (
                 <div
                   key={pkg.name}
-                  className={`relative rounded-3xl border-2 p-7 flex flex-col transition-all hover:-translate-y-1 hover:shadow-xl ${
+                  className={`relative rounded-3xl border-2 p-6 flex flex-col transition-all hover:-translate-y-1 hover:shadow-xl ${
                     pkg.popular
                       ? "bg-yellow-400 border-yellow-400 shadow-xl shadow-yellow-200"
                       : "bg-white border-yellow-100 shadow-md"
@@ -806,20 +823,30 @@ export default function Pricing() {
                       Best Value
                     </div>
                   )}
-                  <div className="text-3xl mb-3">{pkg.emoji}</div>
-                  <p className={`font-bold text-xl mb-1 ${pkg.popular ? "text-yellow-900" : "text-brand-dark"}`}>{pkg.name}</p>
-                  <p className={`text-xs font-semibold mb-1 ${pkg.popular ? "text-yellow-800" : "text-yellow-600"}`}>{pkg.guests}</p>
-                  <p className={`font-display text-5xl mb-1 ${pkg.popular ? "text-yellow-900" : "text-yellow-500"}`}>{pkg.price}</p>
-                  <p className={`text-xs mb-5 ${pkg.popular ? "text-yellow-800" : "text-gray-400"}`}>{pkg.note}</p>
+                  <div className="text-2xl mb-2">{pkg.emoji}</div>
+                  <p className={`font-bold text-lg mb-0.5 ${pkg.popular ? "text-yellow-900" : "text-brand-dark"}`}>{pkg.name}</p>
+                  <p className={`text-xs font-bold mb-3 ${pkg.popular ? "text-yellow-800" : "text-yellow-600"}`}>{pkg.guests} · {pkg.perCup}</p>
+
+                  {/* Original vs Flavored price split */}
+                  <div className={`rounded-xl p-3 mb-4 ${pkg.popular ? "bg-white/30" : "bg-yellow-50 border border-yellow-200"}`}>
+                    <div className="flex justify-between items-center mb-1.5">
+                      <span className={`text-xs font-semibold ${pkg.popular ? "text-yellow-900" : "text-gray-600"}`}>Original</span>
+                      <span className={`font-display text-2xl ${pkg.popular ? "text-yellow-900" : "text-yellow-500"}`}>{pkg.original}</span>
+                    </div>
+                    <div className={`h-px mb-1.5 ${pkg.popular ? "bg-yellow-600/30" : "bg-yellow-200"}`} />
+                    <div className="flex justify-between items-center">
+                      <span className={`text-xs font-semibold ${pkg.popular ? "text-yellow-900" : "text-gray-600"}`}>Flavored</span>
+                      <div className="text-right">
+                        <p className={`font-display text-2xl ${pkg.popular ? "text-yellow-900" : "text-yellow-500"}`}>{pkg.flavored}</p>
+                        <p className={`text-[10px] ${pkg.popular ? "text-yellow-800" : "text-yellow-600"}`}>{pkg.flavoredExtra}</p>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex-1">
-                    <ul className="space-y-1.5">
-                      {pkg.flavors.map((f) => (
-                        <li key={f} className={`flex items-center gap-2 text-xs ${pkg.popular ? "text-yellow-900" : "text-gray-600"}`}>
-                          <span className={pkg.popular ? "text-yellow-700 font-bold" : "text-yellow-500"}>✓</span> {f}
-                        </li>
-                      ))}
-                      {["Machine & operator on-site", "Setup & cleanup included"].map((f) => (
-                        <li key={f} className={`flex items-center gap-2 text-xs ${pkg.popular ? "text-yellow-900" : "text-gray-600"}`}>
+                    <ul className="space-y-1">
+                      {pkg.includes.map((f) => (
+                        <li key={f} className={`flex items-center gap-1.5 text-xs ${pkg.popular ? "text-yellow-900" : "text-gray-600"}`}>
                           <span className={pkg.popular ? "text-yellow-700 font-bold" : "text-yellow-500"}>✓</span> {f}
                         </li>
                       ))}
@@ -827,7 +854,7 @@ export default function Pricing() {
                   </div>
                   <a
                     href="/booking/?package=Lemonade"
-                    className={`mt-6 w-full py-3 rounded-full font-bold text-sm transition-all block text-center ${
+                    className={`mt-5 w-full py-2.5 rounded-full font-bold text-sm transition-all block text-center ${
                       pkg.popular
                         ? "bg-yellow-900 text-white hover:bg-brand-dark"
                         : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
