@@ -434,6 +434,109 @@ export default function SchoolsPage() {
         </div>
       </section>
 
+      {/* TICKET POLICY */}
+      <section className="py-16 px-4 bg-green-50 border-y-2 border-green-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 bg-green-100 text-green-700 font-bold text-sm rounded-full mb-4 uppercase tracking-widest">
+              Our Serving Policy
+            </span>
+            <h2 className="font-display text-4xl text-brand-dark mb-3">
+              How Our <span className="text-green-600">Ticket System</span> Works
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We know school attendance can be unpredictable. Our ticket system protects your budget —
+              unused tickets from your event <strong>never expire and roll over to your next booking.</strong>
+            </p>
+          </div>
+
+          {/* Steps */}
+          <div className="grid sm:grid-cols-4 gap-5 mb-10">
+            {[
+              {
+                step: "1",
+                icon: "🎟️",
+                title: "Buy Your Package",
+                desc: "Choose your package based on expected attendance. Your purchase equals that many snoball tickets.",
+              },
+              {
+                step: "2",
+                icon: "📋",
+                title: "We Send Your Tickets",
+                desc: "Before the event we provide tickets equal to your serving count. Distribute them to students however works best for your school.",
+              },
+              {
+                step: "3",
+                icon: "🍧",
+                title: "Students Redeem On Event Day",
+                desc: "Each student hands in one ticket for one snoball. No cash, no lines, no confusion for your staff.",
+              },
+              {
+                step: "4",
+                icon: "✅",
+                title: "Unused Tickets Roll Over",
+                desc: "Any tickets not used at this event carry over to your next Awesome Snoballs booking. They never expire.",
+              },
+            ].map((s) => (
+              <div key={s.step} className="bg-white rounded-2xl p-5 shadow-sm border border-green-100 text-center">
+                <div className="w-9 h-9 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3">
+                  {s.step}
+                </div>
+                <div className="text-3xl mb-2">{s.icon}</div>
+                <p className="font-bold text-brand-dark text-sm mb-1">{s.title}</p>
+                <p className="text-gray-500 text-xs leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Policy details */}
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="bg-white rounded-2xl p-6 border border-green-200 shadow-sm">
+              <p className="font-bold text-green-700 mb-4 flex items-center gap-2">
+                <span className="text-xl">🎟️</span> What You Need to Know
+              </p>
+              <ul className="space-y-2.5">
+                {[
+                  "Tickets equal your total serving count purchased",
+                  "Unused tickets roll over to your next event — no expiration",
+                  "Tickets can be used across multiple events or dates",
+                  "Works for all packages — small field days to large district events",
+                  "Rollover tickets apply to snoballs only (add-ons priced separately)",
+                  "We track your ticket balance — just reference your school name when rebooking",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <span className="text-green-500 font-bold mt-0.5 shrink-0">✓</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border border-green-200 shadow-sm">
+              <p className="font-bold text-green-700 mb-4 flex items-center gap-2">
+                <span className="text-xl">💡</span> Real Example
+              </p>
+              <div className="bg-green-50 rounded-xl p-4 mb-4">
+                <p className="text-xs font-bold text-green-700 uppercase tracking-wide mb-3">Morrell Park Elementary — June Event</p>
+                <div className="space-y-1.5 text-sm text-gray-700">
+                  <div className="flex justify-between"><span>Tickets purchased</span><span className="font-bold">100 tickets</span></div>
+                  <div className="flex justify-between"><span>Students attended</span><span className="font-bold">82 students</span></div>
+                  <div className="flex justify-between"><span>Tickets used</span><span className="font-bold">82 tickets</span></div>
+                  <div className="flex justify-between border-t border-green-200 pt-1.5 mt-1.5 font-bold text-green-700"><span>Rolled over to next event</span><span>18 tickets ✓</span></div>
+                </div>
+              </div>
+              <p className="text-gray-500 text-xs leading-relaxed">
+                Those 18 tickets are on file and ready to use the next time this school books — no paperwork, no phone call needed to claim them.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-center text-gray-400 text-sm mt-8">
+            Questions about your ticket balance? Call us anytime —{" "}
+            <a href="tel:+14432813331" className="text-brand-blue font-bold hover:underline">443-281-3331</a>
+          </p>
+        </div>
+      </section>
+
       {/* LARGE GROUPS & DISTRICTS */}
       <section className="py-20 px-4 bg-gradient-to-b from-brand-dark to-blue-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
