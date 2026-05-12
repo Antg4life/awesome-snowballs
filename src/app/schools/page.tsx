@@ -28,6 +28,39 @@ const hostPackages = [
   },
 ];
 
+const largeGroupPackages = [
+  {
+    name:       "Large Field Day",
+    emoji:      "🏟️",
+    students:   "175–350 Students",
+    time:       "2–3 Hours",
+    price:      "$850",
+    perStudent: "~$2.43–4.86 / student",
+    highlight:  "Perfect for large elementary & middle school field days",
+    popular:    false,
+  },
+  {
+    name:       "District Event",
+    emoji:      "🏙️",
+    students:   "350–525 Students",
+    time:       "3–4 Hours",
+    price:      "$1,400",
+    perStudent: "~$2.67–4.00 / student",
+    highlight:  "Multi-grade field days, carnivals & district-wide celebrations",
+    popular:    true,
+  },
+  {
+    name:       "City / Park & Rec",
+    emoji:      "🌳",
+    students:   "525–750 Students",
+    time:       "4–5 Hours",
+    price:      "$1,800",
+    perStudent: "~$2.40–3.43 / student",
+    highlight:  "Parks & Rec summer events, community days & city-wide programs",
+    popular:    false,
+  },
+];
+
 const addOns = [
   {
     icon:  "👤",
@@ -395,9 +428,129 @@ export default function SchoolsPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-amber-700 text-xs mt-5">* Over 175 students or need a full-day quote? Call us — we&apos;ll build it on the spot. 443-281-3331</p>
+              <p className="text-amber-700 text-xs mt-5">* Over 175 students? See our <strong>Large Groups &amp; Districts</strong> pricing below — packages up to 750+ students.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* LARGE GROUPS & DISTRICTS */}
+      <section className="py-20 px-4 bg-gradient-to-b from-brand-dark to-blue-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-cyan/20 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-6xl mx-auto relative">
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-brand-yellow/20 text-brand-yellow font-bold text-sm rounded-full mb-4 uppercase tracking-widest">
+              Large Groups · Districts · City Events
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl text-white mb-4">
+              We Scale With You
+            </h2>
+            <p className="text-white/70 max-w-2xl mx-auto text-lg">
+              Proud to serve <strong className="text-white">Baltimore City Public Schools</strong> and{" "}
+              <strong className="text-white">Baltimore City Parks &amp; Recreation</strong> — and any large organization
+              that needs a reliable, high-volume snoball experience.
+            </p>
+          </div>
+
+          {/* Large group cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {largeGroupPackages.map((pkg) => (
+              <div
+                key={pkg.name}
+                className={`relative rounded-3xl p-7 flex flex-col border-2 transition-all hover:-translate-y-1 ${
+                  pkg.popular
+                    ? "bg-brand-blue border-brand-cyan shadow-2xl shadow-brand-blue/40"
+                    : "bg-white/10 border-white/20 hover:bg-white/15"
+                }`}
+              >
+                {pkg.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-yellow text-brand-dark font-bold text-xs px-4 py-1.5 rounded-full shadow whitespace-nowrap">
+                    Most Requested
+                  </div>
+                )}
+                <div className="text-3xl mb-3">{pkg.emoji}</div>
+                <p className="font-bold text-xl text-white mb-1">{pkg.name}</p>
+                <p className="text-white/60 text-xs mb-4 leading-snug">{pkg.highlight}</p>
+
+                <p className="font-display text-5xl text-brand-yellow mb-1">{pkg.price}</p>
+                <p className="text-white/50 text-xs mb-1">{pkg.perStudent}</p>
+                <p className="text-brand-cyan text-xs font-bold mb-6">{pkg.time} · {pkg.students}</p>
+
+                <ul className="space-y-2 flex-1 mb-6">
+                  {[
+                    "All 24 flavors served fresh",
+                    "Full truck setup & breakdown",
+                    "Cups, spoons & napkins included",
+                    "Trained staff on-site",
+                    "On-time arrival guaranteed",
+                    "Add-ons available (donuts, lemonade, ice cream)",
+                  ].map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-xs text-white/80">
+                      <span className="text-brand-cyan font-bold shrink-0">✓</span> {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="/booking/?package=LargeGroup"
+                  className={`w-full py-3 rounded-full font-bold text-sm text-center transition-all block ${
+                    pkg.popular
+                      ? "bg-brand-yellow text-brand-dark hover:opacity-90"
+                      : "bg-white/20 text-white hover:bg-white/30 border border-white/30"
+                  }`}
+                >
+                  Request This Package
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* District perks banner */}
+          <div className="bg-white/10 border border-white/20 rounded-3xl p-8 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="text-brand-yellow font-bold text-sm uppercase tracking-widest mb-3">District & City Accounts</p>
+              <h3 className="font-display text-3xl text-white mb-3">Book Multiple Events — Save More</h3>
+              <p className="text-white/70 leading-relaxed text-sm">
+                Running field days across multiple schools or parks this summer?
+                We offer preferred rates and priority scheduling for district and city accounts
+                that book 3 or more events. One call sets up your whole season.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {[
+                { icon: "📅", text: "Priority scheduling for the full summer season" },
+                { icon: "💵", text: "Preferred rates for 3+ event bookings" },
+                { icon: "📋", text: "One quote covers all your schools or parks" },
+                { icon: "🤝", text: "Dedicated point of contact — no runaround" },
+                { icon: "🏙️", text: "Serving Baltimore City, Baltimore County & DMV" },
+              ].map((item) => (
+                <div key={item.text} className="flex items-center gap-3 text-sm text-white/80">
+                  <span className="text-xl shrink-0">{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+              <a
+                href="tel:+14432813331"
+                className="mt-4 inline-block px-8 py-3 bg-brand-yellow text-brand-dark font-bold rounded-full hover:opacity-90 transition-opacity text-sm"
+              >
+                📞 Call to Set Up a District Account
+              </a>
+            </div>
+          </div>
+
+          {/* 750+ custom callout */}
+          <div className="mt-6 text-center">
+            <p className="text-white/50 text-sm">
+              Need 750+ servings? No problem — call us and we build a custom quote on the spot.
+              <a href="tel:+14432813331" className="text-brand-yellow font-bold ml-1 hover:underline">443-281-3331</a>
+            </p>
+          </div>
+
         </div>
       </section>
 
