@@ -130,7 +130,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Awesome Snoballs. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
-              Made with <Heart className="w-3 h-3 text-brand-pink fill-brand-pink" /> in Maryland
+              The Taste of Louisiana Snoballs — Made in Baltimore <Heart className="w-3 h-3 text-brand-pink fill-brand-pink" />
             </p>
             <a
               href="https://www.awesomesnoballs.com"
