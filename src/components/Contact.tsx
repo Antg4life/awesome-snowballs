@@ -37,7 +37,7 @@ export default function Contact() {
             {/* Inquiry Type */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">What can we help with? *</label>
-              <select name="inquiry_type" required
+              <select name="Inquiry Type" required
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="">Select...</option>
                 <option value="Book for an Event / Party">Book for an Event / Party</option>
@@ -58,7 +58,7 @@ export default function Contact() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
-                <input type="tel" name="phone" required placeholder="(555) 123-4567"
+                <input type="tel" name="Phone Number" required placeholder="(555) 123-4567"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
               </div>
             </div>
@@ -74,12 +74,12 @@ export default function Contact() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Date (if booking)</label>
-                <input type="date" name="event_date"
+                <input type="date" name="Event Date"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Expected Guests (if booking)</label>
-                <select name="guest_count"
+                <select name="Expected Guests"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                   <option value="">Select...</option>
                   <option value="Under 50">Under 50</option>
@@ -93,7 +93,7 @@ export default function Contact() {
             {/* Event Address */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Address (if booking)</label>
-              <input type="text" name="event_address" placeholder="123 Main St, Baltimore, MD 21201"
+              <input type="text" name="Event Address" placeholder="123 Main St, Baltimore, MD 21201"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
             </div>
 

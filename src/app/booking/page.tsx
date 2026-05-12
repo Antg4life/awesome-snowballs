@@ -63,7 +63,7 @@ export default function BookingPage() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
-                <input type="tel" name="phone" required placeholder="(555) 123-4567"
+                <input type="tel" name="Phone Number" required placeholder="(555) 123-4567"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function BookingPage() {
 
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Type *</label>
-              <select name="event_type" required
+              <select name="Event Type" required
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="">Select event type...</option>
                 <option value="Birthday Party">Birthday Party</option>
@@ -96,12 +96,12 @@ export default function BookingPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Date *</label>
-                <input type="date" name="event_date" required
+                <input type="date" name="Event Date" required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Start Time *</label>
-                <input type="time" name="event_start_time" required
+                <input type="time" name="Event Start Time" required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700" />
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function BookingPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Duration Needed *</label>
-                <select name="duration" required
+                <select name="Duration Needed" required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                   <option value="">Select...</option>
                   <option value="1 hour">1 hour</option>
@@ -121,7 +121,7 @@ export default function BookingPage() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Expected Guests *</label>
-                <select name="guest_count" required
+                <select name="Expected Guests" required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                   <option value="">Select range...</option>
                   <option value="Under 50">Under 50</option>
@@ -138,7 +138,7 @@ export default function BookingPage() {
 
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Street Address *</label>
-              <input type="text" name="street_address" required placeholder="123 Main Street"
+              <input type="text" name="Street Address" required placeholder="123 Main Street"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
             </div>
 
@@ -161,14 +161,14 @@ export default function BookingPage() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Zip Code *</label>
-                <input type="text" name="zip_code" required placeholder="21201"
+                <input type="text" name="Zip Code" required placeholder="21201"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Truck Parking Available? *</label>
-              <select name="truck_parking" required
+              <select name="Truck Parking" required
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="">Select...</option>
                 <option value="Yes - street parking available">Yes — street parking available</option>
@@ -183,7 +183,7 @@ export default function BookingPage() {
 
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Package Interest</label>
-              <select name="package"
+              <select name="Package Interest"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="Not sure yet">Not sure yet — help me pick!</option>
                 <option value="Starter ($350 / 2hrs / 50 servings)">Starter — $350 / 2 hrs / up to 50 servings</option>
@@ -215,7 +215,7 @@ export default function BookingPage() {
             {/* How did you hear */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">How Did You Hear About Us?</label>
-              <select name="referral_source"
+              <select name="How Did You Hear About Us"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="">Select...</option>
                 <option value="Google Search">Google Search</option>
@@ -231,7 +231,7 @@ export default function BookingPage() {
             {/* Notes */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-1.5">Additional Notes / Special Requests</label>
-              <textarea name="notes" rows={4}
+              <textarea name="Additional Notes" rows={4}
                 placeholder="Any special requests, questions, or details about your event..."
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all resize-none" />
             </div>
