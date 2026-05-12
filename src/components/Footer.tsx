@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Snowflake, Instagram, Facebook, Heart } from "lucide-react";
 
 const quickLinks = [
-  { label: "Home",    href: "#home" },
-  { label: "Flavors", href: "#flavors" },
-  { label: "About",   href: "#about" },
-  { label: "Find Us", href: "#find-us" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home",       href: "/" },
+  { label: "Schools",    href: "/schools/" },
+  { label: "Book Event", href: "/booking/" },
+  { label: "Get a Quote",href: "/quote/" },
+  { label: "FAQ",        href: "/faq/" },
+  { label: "Contact",    href: "#contact" },
 ];
 
 const social = [
@@ -98,14 +99,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {quickLinks.map((l) => (
                   <li key={l.label}>
-                    <a
-                      href={l.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth" });
-                      }}
-                      className="text-white/60 hover:text-brand-yellow transition-colors text-sm"
-                    >
+                    <a href={l.href} className="text-white/60 hover:text-brand-yellow transition-colors text-sm">
                       {l.label}
                     </a>
                   </li>
@@ -126,7 +120,7 @@ export default function Footer() {
                   </span>
                 ))}
               </div>
-              <p className="text-white/40 text-xs mt-4">+ 93 more flavors!</p>
+              <p className="text-white/40 text-xs mt-4">24 amazing flavors total!</p>
             </div>
           </div>
 
@@ -136,7 +130,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Awesome Snoballs. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
-              Made with <Heart className="w-3 h-3 text-brand-pink fill-brand-pink" /> in Louisiana
+              Made with <Heart className="w-3 h-3 text-brand-pink fill-brand-pink" /> in Maryland
             </p>
             <a
               href="https://www.awesomesnoballs.com"
