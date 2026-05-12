@@ -4,8 +4,8 @@ const hostPackages = [
     emoji:      "🏃",
     time:       "1 Hour",
     students:   "Up to 40 Students",
-    price:      "$175",
-    perStudent: "~$4.38 / student",
+    price:      "$200",
+    perStudent: "~$5.00 / student",
     popular:    false,
   },
   {
@@ -13,8 +13,8 @@ const hostPackages = [
     emoji:      "🎉",
     time:       "2 Hours",
     students:   "Up to 80 Students",
-    price:      "$300",
-    perStudent: "~$3.75 / student",
+    price:      "$350",
+    perStudent: "~$4.38 / student",
     popular:    true,
   },
   {
@@ -22,8 +22,8 @@ const hostPackages = [
     emoji:      "🏫",
     time:       "4 Hours",
     students:   "Up to 175 Students",
-    price:      "$550",
-    perStudent: "~$3.14 / student",
+    price:      "$650",
+    perStudent: "~$3.71 / student",
     popular:    false,
   },
 ];
@@ -32,7 +32,7 @@ const addOns = [
   {
     icon:  "👤",
     name:  "Additional Students",
-    price: "$4.50",
+    price: "$5.00",
     unit:  "per student",
     desc:  "Over your package limit? Just add per student — no new contract needed.",
     hot:   true,
@@ -370,28 +370,28 @@ export default function SchoolsPage() {
                 <div>
                   <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-3">Example A<br/>60 Students · Snoballs Only</p>
                   <div className="space-y-1.5 text-sm text-amber-900">
-                    <div className="flex justify-between"><span>School Celebration</span><span className="font-bold">$300</span></div>
-                    <div className="flex justify-between"><span>+ 20 extra × $4.50</span><span className="font-bold">$90</span></div>
-                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$390</span></div>
+                    <div className="flex justify-between"><span>School Celebration (80)</span><span className="font-bold">$350</span></div>
+                    <div className="flex justify-between"><span>60 students — under limit</span><span className="font-bold">$0</span></div>
+                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$350</span></div>
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-3">Example B<br/>80 Students · Snoballs + Ice Cream</p>
+                  <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-3">Example B<br/>100 Students · Snoballs + Ice Cream</p>
                   <div className="space-y-1.5 text-sm text-amber-900">
-                    <div className="flex justify-between"><span>School Celebration</span><span className="font-bold">$300</span></div>
-                    <div className="flex justify-between"><span>Ice Cream Bar × 80</span><span className="font-bold">$280</span></div>
-                    <div className="flex justify-between"><span>Cotton Candy × 80</span><span className="font-bold">$240</span></div>
-                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$820</span></div>
+                    <div className="flex justify-between"><span>School Celebration (80)</span><span className="font-bold">$350</span></div>
+                    <div className="flex justify-between"><span>+ 20 extra × $5.00</span><span className="font-bold">$100</span></div>
+                    <div className="flex justify-between"><span>Ice Cream Bar × 100</span><span className="font-bold">$350</span></div>
+                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$800</span></div>
                   </div>
                 </div>
                 <div>
                   <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-3">Example C<br/>100 Students · Full Experience</p>
                   <div className="space-y-1.5 text-sm text-amber-900">
-                    <div className="flex justify-between"><span>School Celebration (80)</span><span className="font-bold">$300</span></div>
-                    <div className="flex justify-between"><span>+ 20 extra × $4.50</span><span className="font-bold">$90</span></div>
+                    <div className="flex justify-between"><span>School Celebration (80)</span><span className="font-bold">$350</span></div>
+                    <div className="flex justify-between"><span>+ 20 extra × $5.00</span><span className="font-bold">$100</span></div>
                     <div className="flex justify-between"><span>Mini Donuts (flat)</span><span className="font-bold">$400</span></div>
                     <div className="flex justify-between"><span>Lemonade × 100 × $4.50</span><span className="font-bold">$450</span></div>
-                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$1,240</span></div>
+                    <div className="flex justify-between border-t border-amber-300 pt-1.5 mt-1.5 font-bold text-brand-blue text-base"><span>Total</span><span>$1,300</span></div>
                   </div>
                 </div>
               </div>

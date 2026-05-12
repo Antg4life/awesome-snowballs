@@ -88,7 +88,7 @@ const schoolAddOns = [
   {
     name:      "Additional Students",
     icon:      "👤",
-    price:     "$4.50",
+    price:     "$5.00",
     unit:      "per student",
     desc:      "Over your package limit? Add as many as you need.",
     highlight: true,
@@ -231,8 +231,8 @@ const schoolHostPackages = [
     emoji:       "🏃",
     time:        "1 Hour",
     students:    "Up to 40 Students",
-    price:       "$175",
-    perStudent:  "~$4.38/student",
+    price:       "$200",
+    perStudent:  "~$5.00/student",
     popular:     false,
   },
   {
@@ -240,8 +240,8 @@ const schoolHostPackages = [
     emoji:       "🎉",
     time:        "2 Hours",
     students:    "Up to 80 Students",
-    price:       "$300",
-    perStudent:  "~$3.75/student",
+    price:       "$350",
+    perStudent:  "~$4.38/student",
     popular:     true,
   },
   {
@@ -249,8 +249,8 @@ const schoolHostPackages = [
     emoji:       "🏫",
     time:        "4 Hours",
     students:    "Up to 175 Students",
-    price:       "$550",
-    perStudent:  "~$3.14/student",
+    price:       "$650",
+    perStudent:  "~$3.71/student",
     popular:     false,
   },
 ];
