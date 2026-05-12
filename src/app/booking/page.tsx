@@ -49,6 +49,8 @@ export default function BookingPage() {
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="true" />
             <input type="text" name="_honey" style={{display:"none"}} />
+            <input type="hidden" name="_autoresponse" value="Hi! Thanks for submitting your booking request with Awesome Snoballs! 🍧 We received your details and will confirm your date within 24 hours. To secure your date right away, pay your deposit here: https://square.link/u/zYriSyOu — Once your deposit is received, your date is officially locked in! Questions? Call or text us anytime at 443-281-3331. We can't wait to serve you! — Anthony & The Awesome Snoballs Team" />
+            <input type="hidden" name="_cc" value="antg4life@yahoo.com" />
 
             {/* Contact Info */}
             <h2 className="font-bold text-brand-dark text-base border-b border-gray-100 pb-2">Contact Information</h2>

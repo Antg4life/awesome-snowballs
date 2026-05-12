@@ -126,11 +126,13 @@ export default function QuotePage() {
             method="POST"
             className="space-y-5"
           >
-            <input type="hidden" name="_subject" value="New School Quote Request — Awesome Snoballs" />
+            <input type="hidden" name="_subject" value="🍧 NEW SCHOOL QUOTE REQUEST — Awesome Snoballs" />
             <input type="hidden" name="_next" value="https://www.awesomesnoballs.com/thank-you/" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="true" />
             <input type="text" name="_honey" style={{display:"none"}} />
+            <input type="hidden" name="_autoresponse" value="Hi! Thanks for requesting a school event quote from Awesome Snoballs! 🍧 We received your details and will confirm your custom quote within 24 hours. Want to lock in your date right away? Pay your deposit here: https://square.link/u/zYriSyOu — Your school event will be one the kids never forget! Questions? Call or text 443-281-3331. — Anthony & The Awesome Snoballs Team" />
+            <input type="hidden" name="_cc" value="antg4life@yahoo.com" />
             <input type="hidden" name="estimated_students" value={students} />
             <input type="hidden" name="estimated_total" value={`$${grandTotal.toFixed(2)}`} />
 
