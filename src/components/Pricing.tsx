@@ -1,10 +1,10 @@
 "use client";
 
 const individualPrices = [
-  { size: "Small",  oz: "8 oz",  price: "$3.50", popular: false },
-  { size: "Medium", oz: "12 oz", price: "$4.50", popular: true  },
-  { size: "Large",  oz: "16 oz", price: "$5.50", popular: false },
-  { size: "Jumbo",  oz: "20 oz", price: "$6.50", popular: false },
+  { size: "Small",    oz: "4 oz",  price: "$3.00", popular: false },
+  { size: "Medium",   oz: "8 oz",  price: "$4.00", popular: true  },
+  { size: "Large",    oz: "16 oz", price: "$5.00", popular: false },
+  { size: "Souvenir", oz: "20 oz", price: "$6.00", popular: false },
 ];
 
 const eventPackages = [
@@ -65,10 +65,15 @@ const schoolPackages = [
 ];
 
 const addOns = [
-  { name: "Ice Cream Base",    price: "+$1.50", desc: "Vanilla ice cream packed in the bottom of your snoball" },
-  { name: "Cotton Candy",      price: "+$1.00", desc: "Fluffy cotton candy on top of your snoball" },
-  { name: "Cream",             price: "+$0.50", desc: "Sweet condensed cream drizzled on top" },
-  { name: "Extra Flavor",      price: "+$0.50", desc: "Add a second flavor to your snoball" },
+  { name: "Ice Cream Base",  price: "+$1.00", desc: "Vanilla ice cream packed in the bottom of your snoball" },
+  { name: "Chocolate",       price: "+$1.00", desc: "Chocolate drizzled on top of your snoball" },
+  { name: "Gum",             price: "+$1.00", desc: "Bubblegum piece at the bottom — a classic!" },
+];
+
+const alsoAvailable = [
+  { icon: "🍦", name: "Ice Cream",       price: "$3", desc: "Served individually" },
+  { icon: "🍬", name: "Cotton Candy",    price: "$4", desc: "Fresh spun cotton candy" },
+  { icon: "🥤", name: "Ice Cold Drinks", price: "$2", desc: "Cold beverages available" },
 ];
 
 export default function Pricing() {
@@ -122,14 +127,31 @@ export default function Pricing() {
         </div>
 
         {/* Add-Ons */}
-        <div className="mb-20">
-          <h3 className="font-bold text-2xl text-brand-dark text-center mb-8">Delicious Add-Ons</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div className="mb-10">
+          <h3 className="font-bold text-2xl text-brand-dark text-center mb-2">Snoball Add-Ons</h3>
+          <p className="text-center text-gray-500 text-sm mb-8">Customize your snoball with these extras</p>
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             {addOns.map((addon) => (
               <div key={addon.name} className="bg-white rounded-2xl p-5 shadow-md border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
                 <p className="font-bold text-brand-dark mb-1">{addon.name}</p>
                 <p className="font-display text-2xl text-brand-pink mb-2">{addon.price}</p>
                 <p className="text-gray-400 text-xs leading-relaxed">{addon.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Also Available */}
+        <div className="mb-20">
+          <h3 className="font-bold text-2xl text-brand-dark text-center mb-2">Also Available</h3>
+          <p className="text-center text-gray-500 text-sm mb-8">At individual selling events — all included in event packages</p>
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {alsoAvailable.map((item) => (
+              <div key={item.name} className="bg-gradient-to-b from-brand-light/40 to-white rounded-2xl p-5 shadow-md border border-brand-cyan/20 text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+                <div className="text-4xl mb-2">{item.icon}</div>
+                <p className="font-bold text-brand-dark mb-1">{item.name}</p>
+                <p className="font-display text-3xl text-brand-blue mb-1">{item.price}</p>
+                <p className="text-gray-400 text-xs">{item.desc}</p>
               </div>
             ))}
           </div>

@@ -156,7 +156,7 @@ export default function Flavors() {
         {/* More flavors CTA */}
         <div className="text-center mt-12">
           <p className="text-gray-500 text-sm mb-3">
-            ...and <strong className="text-brand-blue">80+ more flavors</strong> available!
+            We offer <strong className="text-brand-blue">24 amazing flavors</strong> — something for everyone!
           </p>
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
