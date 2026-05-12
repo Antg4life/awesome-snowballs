@@ -48,7 +48,7 @@ export default function GoogleReviews() {
           <p className="font-bold text-brand-dark mb-1">Had a great experience? 🙌</p>
           <p className="text-gray-500 text-sm mb-4">Your review helps other Maryland families find us — and it means the world to our small business!</p>
           <a
-            href="https://search.google.com/local/writereview?placeid=ChIJawesome_snoballs_place_id"
+            href="https://g.page/r/CRJD9--JJBYkEAE/review"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white font-bold rounded-full hover:opacity-90 transition-opacity shadow-lg"

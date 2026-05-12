@@ -31,7 +31,7 @@ export default function Contact() {
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="true" />
             <input type="text" name="_honey" style={{display:"none"}} />
-            <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to Awesome Snoballs! 🍧 We received your message and will get back to you within 24 hours. For faster response, call or text us at 443-281-3331. Looking to book an event? Secure your date with a deposit here: https://square.link/u/zYriSyOu — Anthony & The Awesome Snoballs Team" />
+            <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to Awesome Snoballs! 🍧 We received your message and will get back to you within 24 hours. Call or text us at 443-281-3331 for faster response. Book your event here: https://www.awesomesnoballs.com/booking — Had a great experience with us? Please leave us a Google review, it means the world to our small business: https://g.page/r/CRJD9--JJBYkEAE/review — Anthony & The Awesome Snoballs Team" />
             <input type="hidden" name="_cc" value="antg4life@yahoo.com" />
 
             {/* Inquiry Type */}
