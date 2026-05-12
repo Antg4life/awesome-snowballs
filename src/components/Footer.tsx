@@ -111,7 +111,7 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Popular Flavors</h4>
               <div className="flex flex-wrap gap-2">
-                {["Tiger's Blood", "Mango", "Cotton Candy", "Rainbow", "Watermelon", "Bahama Mama", "Cherry"].map((f) => (
+                {["Tiger's Blood", "Egg Custard", "Mango", "Cotton Candy", "Rainbow", "Watermelon", "Cherry"].map((f) => (
                   <span
                     key={f}
                     className="text-xs px-3 py-1 bg-white/10 text-white/70 rounded-full hover:bg-brand-cyan/30 hover:text-white cursor-default transition-colors"

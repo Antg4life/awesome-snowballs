@@ -61,12 +61,12 @@ const categories: Category[] = [
     label: "Cream",
     emoji: "🍦",
     flavors: [
+      { name: "Egg Custard",     emoji: "🥚", color: "from-yellow-300 to-amber-400", tag: "Baltimore Classic" },
       { name: "Wedding Cake",    emoji: "🎂", color: "from-white to-pink-100", tag: "Premium" },
       { name: "Creamsicle",      emoji: "🍊", color: "from-orange-300 to-orange-100" },
       { name: "Chocolate",       emoji: "🍫", color: "from-amber-700 to-amber-900" },
       { name: "Vanilla Cream",   emoji: "🍨", color: "from-yellow-50 to-amber-100" },
       { name: "Strawberry Cream", emoji: "🍓", color: "from-pink-300 to-pink-100", tag: "Premium" },
-      { name: "Nectar",          emoji: "🌺", color: "from-amber-300 to-yellow-200" },
     ],
   },
   {
