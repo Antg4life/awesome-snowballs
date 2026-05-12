@@ -182,16 +182,16 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className={`mt-6 w-full py-3 rounded-full font-bold text-sm transition-all ${
+                <a
+                  href={`/booking/?package=${pkg.name}`}
+                  className={`mt-6 w-full py-3 rounded-full font-bold text-sm transition-all block text-center ${
                     pkg.color.includes("brand-blue")
                       ? "bg-brand-yellow text-brand-dark hover:opacity-90"
                       : "bg-brand-blue text-white hover:bg-brand-dark"
                   }`}
                 >
                   Book This Package
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -220,12 +220,12 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="w-full py-3 bg-brand-pink hover:bg-brand-coral text-white font-bold rounded-full text-sm transition-colors"
+                <a
+                  href="/booking/?package=School"
+                  className="w-full py-3 bg-brand-pink hover:bg-brand-coral text-white font-bold rounded-full text-sm transition-colors block text-center"
                 >
                   Get a Quote
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -236,12 +236,12 @@ export default function Pricing() {
           <h3 className="font-display text-4xl mb-3">Need a Custom Quote?</h3>
           <p className="text-white/80 mb-6 max-w-lg mx-auto">Every event is unique! Contact us and we&apos;ll create a package that fits your needs and budget.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 bg-brand-yellow text-brand-dark font-bold rounded-full hover:opacity-90 transition-opacity"
+            <a
+              href="/booking/"
+              className="px-8 py-3 bg-brand-yellow text-brand-dark font-bold rounded-full hover:opacity-90 transition-opacity inline-block"
             >
-              Contact Us
-            </button>
+              Get a Custom Quote
+            </a>
             <a href="tel:+14432813331" className="px-8 py-3 bg-white/20 hover:bg-white/30 text-white font-bold rounded-full transition-colors">
               Call 443-281-3331
             </a>

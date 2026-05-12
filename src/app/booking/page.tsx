@@ -1,29 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-const PACKAGES: Record<string, { label: string; price: number | null; duration: string; servings: string }> = {
-  "Starter":         { label: "Starter Package",          price: 350,  duration: "2 hours", servings: "Up to 50 servings" },
-  "Popular":         { label: "Popular Package",           price: 500,  duration: "3 hours", servings: "Up to 80 servings" },
-  "Premium":         { label: "Premium Package",           price: 700,  duration: "4 hours", servings: "Up to 120 servings" },
-  "School":          { label: "School / Fundraiser",       price: null, duration: "TBD",     servings: "Custom" },
-  "Custom":          { label: "Custom Quote",              price: null, duration: "TBD",     servings: "Custom" },
-  "Not sure yet":    { label: "Not sure yet — help me pick!", price: null, duration: "TBD",  servings: "TBD" },
+const PACKAGES: Record<string, { label: string; price: number | null; duration: string; servings: string; hours: string }> = {
+  "Starter":      { label: "Starter Package",             price: 350,  duration: "2 hours", servings: "Up to 50 servings",  hours: "2 hours" },
+  "Popular":      { label: "Popular Package",              price: 500,  duration: "3 hours", servings: "Up to 80 servings",  hours: "3 hours" },
+  "Premium":      { label: "Premium Package",              price: 700,  duration: "4 hours", servings: "Up to 120 servings", hours: "4 hours" },
+  "School":       { label: "School / Fundraiser",          price: null, duration: "TBD",     servings: "Custom",             hours: "" },
+  "Custom":       { label: "Custom Quote",                 price: null, duration: "TBD",     servings: "Custom",             hours: "" },
+  "Not sure yet": { label: "Not sure yet — help me pick!", price: null, duration: "TBD",     servings: "TBD",                hours: "" },
 };
 
 function getPackageKey(val: string) {
-  if (val.startsWith("Starter"))      return "Starter";
-  if (val.startsWith("Popular"))      return "Popular";
-  if (val.startsWith("Premium"))      return "Premium";
-  if (val.includes("School"))         return "School";
-  if (val.startsWith("Custom"))       return "Custom";
+  if (val === "Starter" || val.startsWith("Starter"))  return "Starter";
+  if (val === "Popular" || val.startsWith("Popular"))  return "Popular";
+  if (val === "Premium" || val.startsWith("Premium"))  return "Premium";
+  if (val === "School"  || val.includes("School"))     return "School";
+  if (val === "Custom"  || val.startsWith("Custom"))   return "Custom";
   return "Not sure yet";
 }
 
-export default function BookingPage() {
+function formatPhone(val: string) {
+  const digits = val.replace(/\D/g, "").slice(0, 10);
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 6) return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+  return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+function BookingForm() {
+  const searchParams  = useSearchParams();
+  const pkgParam      = searchParams.get("package") || "Not sure yet";
+  const isPreSelected = pkgParam !== "Not sure yet";
+
   const [sending, setSending]     = useState(false);
   const [sent, setSent]           = useState(false);
-  const [packageVal, setPackage]  = useState("Not sure yet");
+  const [packageVal, setPackage]  = useState(pkgParam);
+  const [phone, setPhone]         = useState("");
+  const [duration, setDuration]   = useState("");
+
+  // Auto-fill duration when a package with a fixed duration is selected
+  useEffect(() => {
+    const key = getPackageKey(packageVal);
+    const h   = PACKAGES[key].hours;
+    if (h) setDuration(h);
+  }, [packageVal]);
 
   const pkgKey  = getPackageKey(packageVal);
   const pkgInfo = PACKAGES[pkgKey];
@@ -31,20 +52,19 @@ export default function BookingPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    const form   = e.currentTarget;
-    const data   = new FormData(form);
-    const name   = data.get("name") as string;
-    const email  = data.get("email") as string;
-    const phone  = data.get("Phone Number") as string;
-    const evType = data.get("Event Type") as string;
-    const evDate = data.get("Event Date") as string;
+    const form  = e.currentTarget;
+    const data  = new FormData(form);
+    const name  = data.get("name")             as string;
+    const email = data.get("email")            as string;
+    const evType = data.get("Event Type")      as string;
+    const evDate = data.get("Event Date")      as string;
     const evTime = data.get("Event Start Time") as string;
     const dur    = data.get("Duration Needed") as string;
     const guests = data.get("Expected Guests") as string;
-    const street = data.get("Street Address") as string;
-    const city   = data.get("city") as string;
-    const state  = data.get("state") as string;
-    const zip    = data.get("Zip Code") as string;
+    const street = data.get("Street Address")  as string;
+    const city   = data.get("city")            as string;
+    const state  = data.get("state")           as string;
+    const zip    = data.get("Zip Code")        as string;
     const pkg    = data.get("Package Interest") as string;
     const notes  = data.get("Additional Notes") as string;
 
@@ -84,14 +104,12 @@ This is an ESTIMATE. Final pricing confirmed within 24 hrs.
 Questions? Call/text 443-281-3331
     `.trim();
 
-    // Send owner notification via FormSubmit
     await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
       method: "POST",
       headers: { Accept: "application/json" },
       body: new FormData(form),
     }).catch(() => {});
 
-    // Send customer booking confirmation via EmailJS
     await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -99,11 +117,7 @@ Questions? Call/text 443-281-3331
         service_id:  "service_obljgqo",
         template_id: "template_ivcpk2k",
         user_id:     "yKYuXOtQHZiss-Wm1",
-        template_params: {
-          name,
-          email,
-          message: bookingSummary,
-        },
+        template_params: { name, email, message: bookingSummary },
       }),
     }).catch(() => {});
 
@@ -148,6 +162,27 @@ Questions? Call/text 443-281-3331
           <p className="text-gray-500 text-lg">Fill out the form and we&apos;ll send you a full pricing summary instantly!</p>
         </div>
 
+        {/* Pre-selected package banner */}
+        {isPreSelected && pkgInfo.price && (
+          <div className="mb-6 bg-green-50 border-2 border-green-200 rounded-2xl p-5 flex items-center gap-4">
+            <div className="text-3xl">✅</div>
+            <div>
+              <p className="font-bold text-green-800 text-lg">{pkgInfo.label} Selected</p>
+              <p className="text-green-700 text-sm">${pkgInfo.price} · {pkgInfo.duration} · {pkgInfo.servings}</p>
+            </div>
+          </div>
+        )}
+
+        {isPreSelected && !pkgInfo.price && (
+          <div className="mb-6 bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 flex items-center gap-4">
+            <div className="text-3xl">📋</div>
+            <div>
+              <p className="font-bold text-blue-800 text-lg">{pkgInfo.label} Selected</p>
+              <p className="text-blue-700 text-sm">We&apos;ll send you custom pricing within 24 hours.</p>
+            </div>
+          </div>
+        )}
+
         <div className="bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl p-6 text-white text-center mb-8">
           <p className="font-bold text-lg mb-1">Ready to lock in your date?</p>
           <p className="text-white/80 text-sm mb-4">Pay your deposit now and your date is secured!</p>
@@ -173,8 +208,15 @@ Questions? Call/text 443-281-3331
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
-                <input type="tel" name="Phone Number" required placeholder="(555) 123-4567"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all" />
+                <input
+                  type="tel"
+                  name="Phone Number"
+                  required
+                  placeholder="443-475-0433"
+                  value={phone}
+                  onChange={e => setPhone(formatPhone(e.target.value))}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all"
+                />
               </div>
             </div>
             <div>
@@ -212,17 +254,36 @@ Questions? Call/text 443-281-3331
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Duration Needed *</label>
-                <select name="Duration Needed" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                  Duration Needed *
+                  {pkgInfo.hours && (
+                    <span className="ml-2 text-green-600 font-normal text-xs">✓ auto-filled from package</span>
+                  )}
+                </label>
+                <select
+                  name="Duration Needed"
+                  required
+                  value={duration}
+                  onChange={e => setDuration(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white"
+                >
                   <option value="">Select...</option>
-                  <option>1 hour</option><option>2 hours</option><option>3 hours</option><option>4 hours</option><option>4+ hours</option>
+                  <option value="1 hour">1 hour</option>
+                  <option value="2 hours">2 hours</option>
+                  <option value="3 hours">3 hours</option>
+                  <option value="4 hours">4 hours</option>
+                  <option value="4+ hours">4+ hours</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Expected Guests *</label>
                 <select name="Expected Guests" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                   <option value="">Select range...</option>
-                  <option>Under 50</option><option>50–100</option><option>100–150</option><option>150–200</option><option>200+</option>
+                  <option>Under 50</option>
+                  <option>50–100</option>
+                  <option>100–150</option>
+                  <option>150–200</option>
+                  <option>200+</option>
                 </select>
               </div>
             </div>
@@ -242,7 +303,11 @@ Questions? Call/text 443-281-3331
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">State *</label>
                 <select name="state" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
-                  <option value="">--</option><option>MD</option><option>DC</option><option>VA</option><option>Other</option>
+                  <option value="">--</option>
+                  <option>MD</option>
+                  <option>DC</option>
+                  <option>VA</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div>
@@ -262,9 +327,14 @@ Questions? Call/text 443-281-3331
               </select>
             </div>
 
-            <h2 className="font-bold text-brand-dark text-base border-b border-gray-100 pb-2 pt-2">Package & Pricing</h2>
+            <h2 className="font-bold text-brand-dark text-base border-b border-gray-100 pb-2 pt-2">Package &amp; Pricing</h2>
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-1.5">Package Interest</label>
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                Package Interest
+                {isPreSelected && (
+                  <span className="ml-2 text-green-600 font-normal text-xs">✓ pre-selected from pricing page</span>
+                )}
+              </label>
               <select name="Package Interest" value={packageVal} onChange={e => setPackage(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="Not sure yet">Not sure yet — help me pick!</option>
@@ -294,8 +364,13 @@ Questions? Call/text 443-281-3331
               <label className="block text-sm font-bold text-gray-700 mb-1.5">How Did You Hear About Us?</label>
               <select name="How Did You Hear About Us" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="">Select...</option>
-                <option>Google Search</option><option>Facebook</option><option>Instagram</option>
-                <option>Word of Mouth / Friend</option><option>Saw the Truck</option><option>Previous Customer</option><option>Other</option>
+                <option>Google Search</option>
+                <option>Facebook</option>
+                <option>Instagram</option>
+                <option>Word of Mouth / Friend</option>
+                <option>Saw the Truck</option>
+                <option>Previous Customer</option>
+                <option>Other</option>
               </select>
             </div>
 
@@ -318,5 +393,20 @@ Questions? Call/text 443-281-3331
         </div>
       </div>
     </main>
+  );
+}
+
+export default function BookingPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-4xl mb-4">🍧</div>
+          <p className="text-gray-500">Loading booking form...</p>
+        </div>
+      </main>
+    }>
+      <BookingForm />
+    </Suspense>
   );
 }
