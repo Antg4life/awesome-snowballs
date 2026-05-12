@@ -104,21 +104,17 @@ This is an ESTIMATE. Final pricing confirmed within 24 hrs.
 Questions? Call/text 443-281-3331
     `.trim();
 
+    // Owner notification + customer CC via FormSubmit
+    const ownerData = new FormData(form);
+    ownerData.set("_subject",      `🍧 NEW BOOKING REQUEST — ${name}`);
+    ownerData.set("_cc",           email);
+    ownerData.set("_autoresponse", bookingSummary);
+    ownerData.set("_template",     "table");
+    ownerData.set("_captcha",      "false");
     await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
-      method: "POST",
+      method:  "POST",
       headers: { Accept: "application/json" },
-      body: new FormData(form),
-    }).catch(() => {});
-
-    await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        service_id:  "service_obljgqo",
-        template_id: "template_ivcpk2k",
-        user_id:     "yKYuXOtQHZiss-Wm1",
-        template_params: { name, email, message: bookingSummary },
-      }),
+      body:    ownerData,
     }).catch(() => {});
 
     setSending(false);

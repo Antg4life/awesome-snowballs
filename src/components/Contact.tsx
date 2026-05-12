@@ -14,24 +14,17 @@ export default function Contact() {
     const name  = data.get("name") as string;
     const email = data.get("email") as string;
 
-    // Send owner notification via FormSubmit
+    // Owner notification + customer CC/auto-reply via FormSubmit
     const formData = new FormData(form);
+    formData.set("_subject",      `🍧 NEW INQUIRY — ${name}`);
+    formData.set("_cc",           email);
+    formData.set("_autoresponse", `Hi ${name},\n\nThanks for reaching out to Awesome Snoballs! We received your message and will get back to you within 24 hours.\n\nQuestions? Call or text us anytime at 443-281-3331.\n\n— The Awesome Snoballs Team\nawesomesnoballs@yahoo.com`);
+    formData.set("_template",     "table");
+    formData.set("_captcha",      "false");
     await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
-      method: "POST",
+      method:  "POST",
       headers: { Accept: "application/json" },
-      body: formData,
-    }).catch(() => {});
-
-    // Send customer auto-reply via EmailJS
-    await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        service_id:  "service_obljgqo",
-        template_id: "template_ivcpk2k",
-        user_id:     "yKYuXOtQHZiss-Wm1",
-        template_params: { name, email },
-      }),
+      body:    formData,
     }).catch(() => {});
 
     setSending(false);
