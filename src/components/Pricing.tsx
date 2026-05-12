@@ -604,18 +604,19 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Ticket Policy callout */}
-          <div className="mb-8 bg-green-50 border-2 border-green-200 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start">
-            <div className="text-4xl shrink-0">🎟️</div>
+          {/* Serving Policy callout */}
+          <div className="mb-8 bg-blue-50 border-2 border-brand-blue/20 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start">
+            <div className="text-4xl shrink-0">📋</div>
             <div>
-              <p className="font-bold text-green-800 text-base mb-1">Our Ticket Policy — No Wasted Servings</p>
-              <p className="text-green-700 text-sm leading-relaxed mb-3">
-                Your package includes tickets equal to your serving count. Every student hands in one ticket for one snoball.
-                <strong className="text-green-900"> Any unused tickets roll over to your next event — they never expire.</strong>{" "}
-                If 20 students are absent, those 20 tickets are on file and ready for your next booking.
+              <p className="font-bold text-brand-dark text-base mb-1">80% Minimum Guarantee — Standard Event Catering Policy</p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                Host-paid packages are billed at a minimum of 80% of your booked headcount regardless of day-of attendance —
+                so we always arrive fully stocked and staffed for your event.
+                Students above your package limit are billed at $5.00 per student.
+                <strong className="text-brand-dark"> Fundraiser events have no minimum — students pay individually.</strong>
               </p>
-              <a href="/schools/" className="text-green-700 font-bold text-xs hover:underline">
-                See full ticket policy on our Schools page →
+              <a href="/schools/#policy" className="text-brand-blue font-bold text-xs hover:underline">
+                See full policy with examples on our Schools page →
               </a>
             </div>
           </div>

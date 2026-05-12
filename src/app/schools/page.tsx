@@ -434,104 +434,102 @@ export default function SchoolsPage() {
         </div>
       </section>
 
-      {/* TICKET POLICY */}
-      <section className="py-16 px-4 bg-green-50 border-y-2 border-green-100">
+      {/* SERVING POLICY */}
+      <section className="py-16 px-4 bg-blue-50 border-y-2 border-blue-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 bg-green-100 text-green-700 font-bold text-sm rounded-full mb-4 uppercase tracking-widest">
+            <span className="inline-block px-4 py-1.5 bg-brand-blue/10 text-brand-blue font-bold text-sm rounded-full mb-4 uppercase tracking-widest">
               Our Serving Policy
             </span>
             <h2 className="font-display text-4xl text-brand-dark mb-3">
-              How Our <span className="text-green-600">Ticket System</span> Works
+              Simple, <span className="gradient-text">Transparent Pricing</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We know school attendance can be unpredictable. Our ticket system protects your budget —
-              unused tickets from your event <strong>never expire and roll over to your next booking.</strong>
+              We prepare specifically for your event based on your confirmed count.
+              Like any professional catering service, an <strong>80% minimum guarantee</strong> applies
+              to all host-paid packages — so we always show up fully stocked and ready.
             </p>
           </div>
 
-          {/* Steps */}
-          <div className="grid sm:grid-cols-4 gap-5 mb-10">
-            {[
-              {
-                step: "1",
-                icon: "🎟️",
-                title: "Buy Your Package",
-                desc: "Choose your package based on expected attendance. Your purchase equals that many snoball tickets.",
-              },
-              {
-                step: "2",
-                icon: "📋",
-                title: "We Send Your Tickets",
-                desc: "Before the event we provide tickets equal to your serving count. Distribute them to students however works best for your school.",
-              },
-              {
-                step: "3",
-                icon: "🍧",
-                title: "Students Redeem On Event Day",
-                desc: "Each student hands in one ticket for one snoball. No cash, no lines, no confusion for your staff.",
-              },
-              {
-                step: "4",
-                icon: "✅",
-                title: "Unused Tickets Roll Over",
-                desc: "Any tickets not used at this event carry over to your next Awesome Snoballs booking. They never expire.",
-              },
-            ].map((s) => (
-              <div key={s.step} className="bg-white rounded-2xl p-5 shadow-sm border border-green-100 text-center">
-                <div className="w-9 h-9 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3">
-                  {s.step}
-                </div>
-                <div className="text-3xl mb-2">{s.icon}</div>
-                <p className="font-bold text-brand-dark text-sm mb-1">{s.title}</p>
-                <p className="text-gray-500 text-xs leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Policy details */}
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-2xl p-6 border border-green-200 shadow-sm">
-              <p className="font-bold text-green-700 mb-4 flex items-center gap-2">
-                <span className="text-xl">🎟️</span> What You Need to Know
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* What the guarantee means */}
+            <div className="bg-white rounded-2xl p-6 border-2 border-brand-blue/20 shadow-sm">
+              <p className="font-bold text-brand-dark mb-1 flex items-center gap-2 text-lg">
+                <span>📋</span> The 80% Minimum Guarantee
               </p>
-              <ul className="space-y-2.5">
+              <p className="text-gray-500 text-sm mb-5">Standard for all professional event catering — familiar to any school administrator.</p>
+              <ul className="space-y-3">
                 {[
-                  "Tickets equal your total serving count purchased",
-                  "Unused tickets roll over to your next event — no expiration",
-                  "Tickets can be used across multiple events or dates",
-                  "Works for all packages — small field days to large district events",
-                  "Rollover tickets apply to snoballs only (add-ons priced separately)",
-                  "We track your ticket balance — just reference your school name when rebooking",
+                  "Give us your best estimated headcount when booking",
+                  "You are billed for a minimum of 80% of that count regardless of day-of attendance",
+                  "Students above your package limit are billed at $5.00 per student",
+                  "Fundraiser events are not affected — students pay individually, no minimum applies",
+                  "For the best result, give us a realistic count — we stock and staff exactly for that number",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                    <span className="text-green-500 font-bold mt-0.5 shrink-0">✓</span> {item}
+                    <span className="text-brand-blue font-bold mt-0.5 shrink-0">✓</span> {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-green-200 shadow-sm">
-              <p className="font-bold text-green-700 mb-4 flex items-center gap-2">
-                <span className="text-xl">💡</span> Real Example
-              </p>
-              <div className="bg-green-50 rounded-xl p-4 mb-4">
-                <p className="text-xs font-bold text-green-700 uppercase tracking-wide mb-3">Morrell Park Elementary — June Event</p>
+            {/* Side-by-side examples */}
+            <div className="space-y-4">
+              <div className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <p className="text-xs font-bold text-brand-blue uppercase tracking-wide mb-3">
+                  ✅ Example A — Full Attendance
+                </p>
                 <div className="space-y-1.5 text-sm text-gray-700">
-                  <div className="flex justify-between"><span>Tickets purchased</span><span className="font-bold">100 tickets</span></div>
-                  <div className="flex justify-between"><span>Students attended</span><span className="font-bold">82 students</span></div>
-                  <div className="flex justify-between"><span>Tickets used</span><span className="font-bold">82 tickets</span></div>
-                  <div className="flex justify-between border-t border-green-200 pt-1.5 mt-1.5 font-bold text-green-700"><span>Rolled over to next event</span><span>18 tickets ✓</span></div>
+                  <div className="flex justify-between"><span>Booked for</span><span className="font-bold">100 students</span></div>
+                  <div className="flex justify-between"><span>Attended</span><span className="font-bold">98 students</span></div>
+                  <div className="flex justify-between border-t border-blue-100 pt-1.5 mt-1.5 font-bold text-brand-blue"><span>Billed for</span><span>100 students (package rate)</span></div>
                 </div>
               </div>
-              <p className="text-gray-500 text-xs leading-relaxed">
-                Those 18 tickets are on file and ready to use the next time this school books — no paperwork, no phone call needed to claim them.
+
+              <div className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <p className="text-xs font-bold text-brand-blue uppercase tracking-wide mb-3">
+                  ⚠️ Example B — Lower Attendance
+                </p>
+                <div className="space-y-1.5 text-sm text-gray-700">
+                  <div className="flex justify-between"><span>Booked for</span><span className="font-bold">100 students</span></div>
+                  <div className="flex justify-between"><span>Attended</span><span className="font-bold">60 students</span></div>
+                  <div className="flex justify-between"><span>80% minimum</span><span className="font-bold">80 students</span></div>
+                  <div className="flex justify-between border-t border-blue-100 pt-1.5 mt-1.5 font-bold text-brand-blue"><span>Billed for</span><span>80 students (minimum)</span></div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <p className="text-xs font-bold text-green-600 uppercase tracking-wide mb-3">
+                  🎉 Example C — Higher Attendance
+                </p>
+                <div className="space-y-1.5 text-sm text-gray-700">
+                  <div className="flex justify-between"><span>Booked for</span><span className="font-bold">100 students</span></div>
+                  <div className="flex justify-between"><span>Attended</span><span className="font-bold">115 students</span></div>
+                  <div className="flex justify-between"><span>15 over limit × $5.00</span><span className="font-bold">$75</span></div>
+                  <div className="flex justify-between border-t border-blue-100 pt-1.5 mt-1.5 font-bold text-green-600"><span>Billed for</span><span>Package + $75 overage</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Fundraiser note */}
+          <div className="bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-5 flex gap-4 items-start">
+            <span className="text-3xl shrink-0">💡</span>
+            <div>
+              <p className="font-bold text-brand-dark mb-1">Fundraiser Events Are Different</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                The 80% minimum only applies to <strong>host-paid packages</strong> where your school pays upfront.
+                For our <strong>free fundraiser option</strong>, students pay individually on the day — so there&apos;s
+                no minimum, no risk, and no billing surprises. Many schools prefer the fundraiser model for this reason.
               </p>
+              <a href="#pricing" className="text-brand-blue font-bold text-xs hover:underline mt-2 inline-block">
+                Compare both options above ↑
+              </a>
             </div>
           </div>
 
           <p className="text-center text-gray-400 text-sm mt-8">
-            Questions about your ticket balance? Call us anytime —{" "}
+            Questions about your specific event count? Call us and we&apos;ll help you estimate correctly —{" "}
             <a href="tel:+14432813331" className="text-brand-blue font-bold hover:underline">443-281-3331</a>
           </p>
         </div>
