@@ -120,7 +120,7 @@ Questions? Call or text us anytime:
 ✉️ awesomesnoballs@yahoo.com
 🌐 www.awesomesnoballs.com
 
-— Anthony & The Awesome Snoballs Team 🍧
+— Mike & The Awesome Snoballs Team 🍧
 Maryland's #1 Mobile Snoball Truck
     `.trim();
 

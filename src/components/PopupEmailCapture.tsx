@@ -52,7 +52,7 @@ READY TO BOOK NOW?
 → Pay deposit: https://square.link/u/zYriSyOu
 
 Questions? Call/text us anytime: 443-281-3331
-— Anthony & The Awesome Snoballs Team 🍧`;
+— Mike & The Awesome Snoballs Team 🍧`;
 
     try {
       await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
