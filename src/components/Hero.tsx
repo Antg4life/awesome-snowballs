@@ -15,11 +15,11 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 glass px-5 py-2.5 rounded-full text-white text-sm font-semibold mb-8 animate-fade-in">
-          <span className="w-2 h-2 bg-brand-yellow rounded-full animate-pulse" />
-          Maryland&apos;s Premier Mobile Sno Ball Truck — Serving MD, DC &amp; DMV
-          <span className="w-2 h-2 bg-brand-pink rounded-full animate-pulse" />
+        {/* Urgency badge */}
+        <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-dark px-5 py-2.5 rounded-full text-sm font-black mb-6 animate-fade-in shadow-xl">
+          <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+          Summer 2026 — Birthday Parties · Block Parties · Camps · Festivals
+          <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
         </div>
 
         {/* Heading */}
@@ -31,28 +31,36 @@ export default function Hero() {
 
         {/* Tagline */}
         <p className="text-white/90 text-xl sm:text-2xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          Cool Off. Sweeten Up. Live Awesome.
+          Maryland&apos;s #1 Mobile Snoball Truck 🍧
         </p>
-        <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          Hand-crafted snoballs in 24 amazing flavors including our famous Egg Custard!
-          Serving Maryland, Washington DC and the entire DMV Area.
+        <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          24 flavors including Baltimore&apos;s famous Egg Custard. We come to YOU —
+          birthday parties, school events, block parties, camps &amp; festivals across MD, DC &amp; DMV.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: "0.7s" }}>
-          <button
-            onClick={() => document.querySelector("#flavors")?.scrollIntoView({ behavior: "smooth" })}
-            className="group px-10 py-4 bg-brand-pink hover:bg-brand-coral text-white font-bold text-lg rounded-full shadow-2xl shadow-brand-pink/40 hover:shadow-brand-pink/60 transition-all duration-300 hover:scale-105"
+          <a
+            href="/booking/"
+            className="group px-10 py-4 bg-brand-yellow hover:bg-yellow-300 text-brand-dark font-black text-xl rounded-full shadow-2xl shadow-brand-yellow/40 transition-all duration-300 hover:scale-105"
           >
-            Explore Flavors
-            <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">→</span>
-          </button>
-          <button
-            onClick={() => document.querySelector("#find-us")?.scrollIntoView({ behavior: "smooth" })}
+            📅 Book Your Summer Event
+          </a>
+          <a
+            href="tel:+14432813331"
             className="px-10 py-4 glass text-white font-bold text-lg rounded-full hover:bg-white/25 transition-all duration-300 border border-white/30 hover:border-white/50"
           >
-            Find Our Truck
-          </button>
+            📞 Call 443-281-3331
+          </a>
+        </div>
+
+        {/* Summer event types */}
+        <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+          {["🎂 Birthday Parties", "🏡 Block Parties", "🏕️ Summer Camps", "🏃 Field Days", "🎪 Festivals", "🏫 School Events", "🤝 Corporate Events", "🌊 Pool Parties"].map((tag) => (
+            <span key={tag} className="text-xs px-3 py-1.5 bg-white/15 text-white rounded-full font-semibold border border-white/20">
+              {tag}
+            </span>
+          ))}
         </div>
 
         {/* Stats row */}

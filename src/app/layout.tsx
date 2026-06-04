@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Awesome Snoballs | Maryland's #1 Mobile Snoball Truck | Book for Events",
-  description: "Maryland's #1 mobile snoball truck serving MD, DC & DMV. Book for field days, school events, birthday parties & festivals. 24+ flavors, $3/student school pricing. Call 443-281-3331.",
-  keywords: ["snoball truck Maryland", "shaved ice truck DMV", "Hawaiian shaved ice Maryland", "mobile snoball Baltimore", "field day vendor Maryland", "school event snoball truck", "book snoball truck", "snoball truck DC", "snoball truck Virginia", "egg custard snoball", "awesome snoballs", "Maryland summer event", "snoball truck for hire"],
+  title: "Awesome Snoballs | Maryland's #1 Mobile Snoball Truck | Summer 2026 Booking Open",
+  description: "Book Maryland's #1 mobile snoball truck for summer 2026! Birthday parties, block parties, summer camps, festivals & school events. 24 flavors including Egg Custard. Serving MD, DC & DMV. Call 443-281-3331.",
+  keywords: ["snoball truck Maryland", "shaved ice truck Baltimore", "mobile snoball truck summer 2026", "birthday party snoball truck", "block party food truck Maryland", "summer camp food vendor Maryland", "Hawaiian shaved ice Baltimore", "egg custard snoball Baltimore", "snoball truck for hire DMV", "pool party food truck Maryland", "festival food vendor Maryland", "shaved ice truck near me", "book snoball truck Baltimore", "summer event food truck DC", "awesome snoballs"],
   openGraph: {
     title: "Awesome Snoballs | Maryland's #1 Mobile Snoball Truck",
     description: "Book Maryland's #1 mobile snoball truck for your event! Field days, birthday parties, festivals & more. 24+ flavors. Serving MD, DC & DMV.",
@@ -95,6 +95,19 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Summer Urgency Bar — sitewide */}
+        <div className="bg-gradient-to-r from-brand-pink via-red-500 to-brand-coral text-white text-center py-2.5 px-4 text-sm font-bold z-[60] relative">
+          <span className="animate-pulse mr-2">🔥</span>
+          Summer 2026 dates are booking NOW — Birthday parties, block parties, camps &amp; more!
+          <a href="tel:+14432813331" className="ml-3 underline hover:no-underline font-black">
+            Call 443-281-3331
+          </a>
+          <span className="mx-2">·</span>
+          <a href="/booking/" className="underline hover:no-underline font-black">
+            Book Online
+          </a>
+          <span className="animate-pulse ml-2">🍧</span>
+        </div>
         {children}
       </body>
     </html>
