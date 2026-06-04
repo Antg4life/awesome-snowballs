@@ -7,6 +7,7 @@ import Testimonials       from "@/components/Testimonials";
 import GoogleReviews      from "@/components/GoogleReviews";
 import Urgency            from "@/components/Urgency";
 import Pricing            from "@/components/Pricing";
+import ServiceArea        from "@/components/ServiceArea";
 import FindUs             from "@/components/FindUs";
 import Contact            from "@/components/Contact";
 import Footer             from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <GoogleReviews />
       <Urgency />
       <Pricing />
+      <ServiceArea />
       <FindUs />
       <Contact />
       <Footer />

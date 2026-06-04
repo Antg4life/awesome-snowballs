@@ -74,34 +74,54 @@ function BookingForm() {
       ? `$${pkgDetails.price} (${pkgDetails.duration} · ${pkgDetails.servings})`
       : "Custom quote — we will confirm pricing within 24 hours";
 
-    const bookingSummary = `
-BOOKING REQUEST — AWESOME SNOBALLS
-====================================
-Name:           ${name}
-Phone:          ${phone}
-Email:          ${email}
+    const bookingSummary = `Hi ${name}! 🍧
+
+Thank you for choosing Awesome Snoballs! We received your booking request and will confirm your date within 24 hours.
+
+YOUR BOOKING SUMMARY
+=======================================
+Name:        ${name}
+Phone:       ${phone}
+Email:       ${email}
 
 EVENT DETAILS
-Event Type:     ${evType}
-Date:           ${evDate}
-Start Time:     ${evTime}
-Duration:       ${dur}
-Guests:         ${guests}
+Event Type:  ${evType}
+Date:        ${evDate}
+Start Time:  ${evTime}
+Duration:    ${dur}
+Guests:      ${guests}
+Address:     ${fullAddress}
 
-LOCATION
-Address:        ${fullAddress}
+PACKAGE & ESTIMATED PRICING
+Package:     ${pkgDetails.label}
+Est. Price:  ${priceLine}
+Notes:       ${notes || "None"}
 
-PACKAGE & PRICING
-Package:        ${pkgDetails.label}
-Est. Price:     ${priceLine}
-Notes:          ${notes || "None"}
+=======================================
 
-====================================
-DEPOSIT: Pay here to lock in your date:
-https://square.link/u/zYriSyOu
+NEXT STEPS — IMPORTANT:
 
-This is an ESTIMATE. Final pricing confirmed within 24 hrs.
-Questions? Call/text 443-281-3331
+1️⃣  PAY YOUR DEPOSIT TO HOLD YOUR DATE
+    Your date is NOT held until a deposit is received.
+    Dates book up fast in summer — secure yours now:
+    → https://square.link/u/zYriSyOu
+
+2️⃣  WE CONFIRM WITHIN 24 HOURS
+    We'll call or text ${phone} to confirm availability,
+    finalize pricing, and answer any questions.
+
+3️⃣  WE SHOW UP & HANDLE EVERYTHING
+    We bring the truck, all 24 flavors, cups, spoons,
+    setup & breakdown. Your only job is to enjoy it!
+
+=======================================
+Questions? Call or text us anytime:
+📞 443-281-3331
+✉️ awesomesnoballs@yahoo.com
+🌐 www.awesomesnoballs.com
+
+— Anthony & The Awesome Snoballs Team 🍧
+Maryland's #1 Mobile Snoball Truck
     `.trim();
 
     // Owner notification + customer CC via FormSubmit
