@@ -4,20 +4,22 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const PACKAGES: Record<string, { label: string; price: number | null; duration: string; servings: string; hours: string }> = {
-  "Starter":      { label: "Starter Package",             price: 350,  duration: "2 hours", servings: "Up to 50 servings",  hours: "2 hours" },
-  "Popular":      { label: "Popular Package",              price: 500,  duration: "3 hours", servings: "Up to 80 servings",  hours: "3 hours" },
-  "Premium":      { label: "Premium Package",              price: 700,  duration: "4 hours", servings: "Up to 120 servings", hours: "4 hours" },
-  "School":       { label: "School / Fundraiser",          price: null, duration: "TBD",     servings: "Custom",             hours: "" },
-  "Custom":       { label: "Custom Quote",                 price: null, duration: "TBD",     servings: "Custom",             hours: "" },
-  "Not sure yet": { label: "Not sure yet — help me pick!", price: null, duration: "TBD",     servings: "TBD",                hours: "" },
+  "Quick Stop":   { label: "Quick Stop",                  price: 75,   duration: "~15 min",      servings: "Up to 15 snoballs",  hours: "" },
+  "Party Pack":   { label: "Party Pack",                  price: 125,  duration: "~30 min",      servings: "Up to 30 snoballs",  hours: "" },
+  "Block Party":  { label: "Block Party",                 price: 225,  duration: "~1 hour",      servings: "Up to 60 snoballs",  hours: "" },
+  "Full Event":   { label: "Full Event",                  price: 350,  duration: "1–1.5 hours",  servings: "Up to 100 snoballs", hours: "" },
+  "School":       { label: "School / Fundraiser",         price: null, duration: "TBD",          servings: "Custom",             hours: "" },
+  "Custom":       { label: "Custom Quote",                price: null, duration: "TBD",          servings: "Custom",             hours: "" },
+  "Not sure yet": { label: "Not sure yet — help me pick!", price: null, duration: "TBD",         servings: "TBD",                hours: "" },
 };
 
 function getPackageKey(val: string) {
-  if (val === "Starter" || val.startsWith("Starter"))  return "Starter";
-  if (val === "Popular" || val.startsWith("Popular"))  return "Popular";
-  if (val === "Premium" || val.startsWith("Premium"))  return "Premium";
-  if (val === "School"  || val.includes("School"))     return "School";
-  if (val === "Custom"  || val.startsWith("Custom"))   return "Custom";
+  if (val.includes("Quick"))  return "Quick Stop";
+  if (val.includes("Party Pack") || val === "Party Pack") return "Party Pack";
+  if (val.includes("Block"))  return "Block Party";
+  if (val.includes("Full"))   return "Full Event";
+  if (val.includes("School")) return "School";
+  if (val.includes("Custom")) return "Custom";
   return "Not sure yet";
 }
 
@@ -368,9 +370,10 @@ Maryland's #1 Mobile Snoball Truck
               <select name="Package Interest" value={packageVal} onChange={e => setPackage(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700 bg-white">
                 <option value="Not sure yet">Not sure yet — help me pick!</option>
-                <option value="Starter">Starter — $350 / 2 hrs / up to 50 servings</option>
-                <option value="Popular">Popular — $500 / 3 hrs / up to 80 servings</option>
-                <option value="Premium">Premium — $700 / 4 hrs / up to 120 servings</option>
+                <option value="Quick Stop">Quick Stop — $75 / ~15 min / 15 snoballs</option>
+                <option value="Party Pack">Party Pack — $125 / ~30 min / 30 snoballs</option>
+                <option value="Block Party">Block Party — $225 / ~1 hour / 60 snoballs</option>
+                <option value="Full Event">Full Event — $350 / 1–1.5 hrs / 100 snoballs</option>
                 <option value="School">School / Fundraiser Package</option>
                 <option value="Custom">Custom / Need a quote</option>
               </select>
