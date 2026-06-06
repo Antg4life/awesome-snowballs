@@ -9,16 +9,17 @@ const individualPrices = [
 
 const partyPackages = [
   {
-    name:      "Quick Stop",
-    emoji:     "⚡",
-    tagline:   "Birthday parties & small backyard events",
-    duration:  "30 Minutes",
-    servings:  "Up to 15 Snoballs",
-    price:     "$75",
-    perServing:"$5 / snoball",
-    popular:   false,
-    badge:     "",
-    features:  [
+    name:        "Quick Stop",
+    emoji:       "⚡",
+    tagline:     "Birthday parties & small backyard events",
+    duration:    "30 Minutes",
+    servings:    "Up to 15 Snoballs",
+    price:       "$75",
+    perServing:  "$5 / snoball",
+    popular:     false,
+    badge:       "",
+    deliveryFee: true,
+    features:    [
       "30-minute service window",
       "Up to 15 snoballs",
       "All 24 flavors",
@@ -26,16 +27,17 @@ const partyPackages = [
     ],
   },
   {
-    name:      "Party Pack",
-    emoji:     "🎉",
-    tagline:   "Most popular for backyard parties",
-    duration:  "1 Hour",
-    servings:  "Up to 30 Snoballs",
-    price:     "$125",
-    perServing:"$4.17 / snoball",
-    popular:   true,
-    badge:     "Best Value",
-    features:  [
+    name:        "Party Pack",
+    emoji:       "🎉",
+    tagline:     "Most popular for backyard parties",
+    duration:    "1 Hour",
+    servings:    "Up to 30 Snoballs",
+    price:       "$125",
+    perServing:  "$4.17 / snoball",
+    popular:     true,
+    badge:       "Best Value",
+    deliveryFee: true,
+    features:    [
       "1-hour service window",
       "Up to 30 snoballs",
       "All 24 flavors",
@@ -44,16 +46,17 @@ const partyPackages = [
     ],
   },
   {
-    name:      "Block Party",
-    emoji:     "🏡",
-    tagline:   "Neighborhood events & cookouts",
-    duration:  "2 Hours",
-    servings:  "Up to 60 Snoballs",
-    price:     "$225",
-    perServing:"$3.75 / snoball",
-    popular:   false,
-    badge:     "",
-    features:  [
+    name:        "Block Party",
+    emoji:       "🏡",
+    tagline:     "Neighborhood events & cookouts",
+    duration:    "2 Hours",
+    servings:    "Up to 60 Snoballs",
+    price:       "$225",
+    perServing:  "$3.75 / snoball",
+    popular:     false,
+    badge:       "",
+    deliveryFee: false,
+    features:    [
       "2-hour service window",
       "Up to 60 snoballs",
       "All 24 flavors",
@@ -63,16 +66,17 @@ const partyPackages = [
     ],
   },
   {
-    name:      "Full Event",
-    emoji:     "🎪",
-    tagline:   "Festivals, fairs & large parties",
-    duration:  "3 Hours",
-    servings:  "Up to 100 Snoballs",
-    price:     "$350",
-    perServing:"$3.50 / snoball",
-    popular:   false,
-    badge:     "",
-    features:  [
+    name:        "Full Event",
+    emoji:       "🎪",
+    tagline:     "Festivals, fairs & large parties",
+    duration:    "3 Hours",
+    servings:    "Up to 100 Snoballs",
+    price:       "$350",
+    perServing:  "$3.50 / snoball",
+    popular:     false,
+    badge:       "",
+    deliveryFee: false,
+    features:    [
       "3-hour service window",
       "Up to 100 snoballs",
       "All 24 flavors",
@@ -335,6 +339,11 @@ export default function Pricing() {
 
                   <p className={`font-display text-5xl mb-1 ${pkg.popular ? "text-brand-yellow" : "text-brand-blue"}`}>{pkg.price}</p>
                   <p className={`text-xs mb-1 font-semibold ${pkg.popular ? "text-white/60" : "text-gray-400"}`}>{pkg.perServing}</p>
+                  {pkg.deliveryFee && (
+                    <p className={`text-xs font-bold mb-1 ${pkg.popular ? "text-brand-yellow/80" : "text-brand-coral"}`}>
+                      + $25 delivery fee
+                    </p>
+                  )}
                   <p className={`text-xs mb-5 font-bold ${pkg.popular ? "text-white/80" : "text-brand-cyan"}`}>
                     {pkg.duration} · {pkg.servings}
                   </p>
@@ -365,7 +374,7 @@ export default function Pricing() {
           </div>
 
           <p className="text-center text-gray-400 text-sm mt-5">
-            Additional hours available at $100/hr · Over 100 servings? We&apos;ll customize a quote for you!
+            $25 delivery fee applies to orders under $150 · Additional hours available at $100/hr · Over 100 servings? We&apos;ll customize a quote!
           </p>
         </div>
 
