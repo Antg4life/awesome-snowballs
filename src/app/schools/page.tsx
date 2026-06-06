@@ -30,34 +30,37 @@ const hostPackages = [
 
 const largeGroupPackages = [
   {
-    name:       "Large Field Day",
-    emoji:      "🏟️",
-    students:   "175–350 Students",
-    time:       "2–3 Hours",
-    price:      "$850",
-    perStudent: "~$2.43–4.86 / student",
-    highlight:  "Perfect for large elementary & middle school field days",
-    popular:    false,
+    name:        "Half Day",
+    emoji:       "☀️",
+    students:    "Up to 300 Students",
+    time:        "3–4 Hours",
+    price:       "$899",
+    perStudent:  "~$3.00 / student",
+    konaPrice:   "Kona Ice charges $4–5/student = $1,200–$1,500",
+    highlight:   "Large elementary & middle school field days",
+    popular:     false,
   },
   {
-    name:       "District Event",
-    emoji:      "🏙️",
-    students:   "350–525 Students",
-    time:       "3–4 Hours",
-    price:      "$1,400",
-    perStudent: "~$2.67–4.00 / student",
-    highlight:  "Multi-grade field days, carnivals & district-wide celebrations",
-    popular:    true,
+    name:        "Full School Day",
+    emoji:       "🏫",
+    students:    "Up to 400 Students",
+    time:        "5–6 Hours",
+    price:       "$1,199",
+    perStudent:  "~$3.00 / student",
+    konaPrice:   "Kona Ice charges $4–5/student = $1,600–$2,000",
+    highlight:   "Multi-grade field days, carnivals & end-of-year celebrations",
+    popular:     true,
   },
   {
-    name:       "City / Park & Rec",
-    emoji:      "🌳",
-    students:   "525–750 Students",
-    time:       "4–5 Hours",
-    price:      "$1,800",
-    perStudent: "~$2.40–3.43 / student",
-    highlight:  "Parks & Rec summer events, community days & city-wide programs",
-    popular:    false,
+    name:        "City / Parks & Rec",
+    emoji:       "🌳",
+    students:    "Up to 500 Students",
+    time:        "6–8 Hours",
+    price:       "$1,499",
+    perStudent:  "~$3.00 / student",
+    konaPrice:   "Kona Ice charges $4–5/student = $2,000–$2,500",
+    highlight:   "Parks & Rec programs, community days & district-wide events",
+    popular:     false,
   },
 ];
 
@@ -575,7 +578,10 @@ export default function SchoolsPage() {
 
                 <p className="font-display text-5xl text-brand-yellow mb-1">{pkg.price}</p>
                 <p className="text-white/50 text-xs mb-1">{pkg.perStudent}</p>
-                <p className="text-brand-cyan text-xs font-bold mb-6">{pkg.time} · {pkg.students}</p>
+                <p className="text-brand-cyan text-xs font-bold mb-2">{pkg.time} · {pkg.students}</p>
+                <p className="text-xs text-green-300 font-bold mb-4 bg-green-900/30 rounded-lg px-3 py-1.5">
+                  💰 {pkg.konaPrice}
+                </p>
 
                 <ul className="space-y-2 flex-1 mb-6">
                   {[
