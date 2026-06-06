@@ -131,7 +131,35 @@ export default function QuotePage() {
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="true" />
             <input type="text" name="_honey" style={{display:"none"}} />
-            <input type="hidden" name="_autoresponse" value="Hi! Thanks for requesting a school event quote from Awesome Snoballs! 🍧 We received your details and will confirm your custom quote within 24 hours. Want to lock in your date right away? Pay your deposit here: https://square.link/u/zYriSyOu — Your school event will be one the kids never forget! Questions? Call or text 443-281-3331. — Mike & The Awesome Snoballs Team" />
+            <input type="hidden" name="_autoresponse" value={`Hi! Thanks for submitting a school event quote request to Awesome Snoballs! 🍧 Mike will personally call or text you within a few hours to confirm your date and finalize pricing.
+
+SCHOOL PACKAGES (flat-rate, every student included):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏃 Field Day          — $200 | 1 hour  | up to 40 students (~$5.00/student)
+🎉 School Celebration — $350 | 2 hours | up to 80 students (~$4.38/student)
+🏫 Full Day Event     — $650 | 4 hours | up to 175 students (~$3.71/student)
+   Additional students over limit: $5.00 each
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FREE FUNDRAISER OPTION:
+We come at zero cost to your school. Students pay $4–$5 each at the truck and your school keeps 25% of every dollar collected!
+
+SCHOOL ADD-ONS (per student):
+• Ice Cream Bars (Drumstick/Nestlé) — $3.50
+• Cotton Candy — $3.00
+• Popcorn — $2.00
+• Hot Mini Donuts — from $400 flat rate
+• Fresh Squeezed Lemonade — from $250 flat rate
+
+80% MINIMUM POLICY:
+If fewer students attend than expected, the minimum charge is 80% of your booked count. No rollover credits — unused servings are not carried forward.
+
+LOCK IN YOUR DATE — PAY DEPOSIT:
+→ https://square.link/u/zYriSyOu
+
+Questions? Call or text Mike directly: 443-281-3331
+More info: www.awesomesnoballs.com/schools
+
+— Mike & The Awesome Snoballs Team 🍧`} />
             <input type="hidden" name="_cc" value="antg4life@yahoo.com" />
             <input type="hidden" name="estimated_students" value={students} />
             <input type="hidden" name="estimated_total" value={`$${grandTotal.toFixed(2)}`} />

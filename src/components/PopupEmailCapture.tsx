@@ -34,25 +34,38 @@ export default function PopupEmailCapture() {
     setLoading(true);
     const autoReply = `Hi ${name}! 🍧
 
-Thanks for your interest in Awesome Snoballs! We received your availability request and will reach out within a few hours.
+We got your availability request${date ? ` for ${date}` : ""}! Mike will personally call or text you at ${phone} within a few hours to confirm your date.
 
-YOUR REQUEST DETAILS:
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Preferred Date: ${date || "Not specified"}
+⚡ SECURE YOUR DATE NOW — PAY DEPOSIT:
+Summer 2026 weekends are going fast. A deposit locks your date before someone else takes it.
+→ https://square.link/u/zYriSyOu
 
-WHAT HAPPENS NEXT:
-✓ We'll text or call ${phone} within a few hours to confirm availability
-✓ We'll hold your date for 24 hours while you review our packages
-✓ A small deposit locks in your date — no date is held without one
+OUR PARTY PACKAGES:
+=======================================
+⚡ Quick Stop   — $75    | ~15 min   | 15 snoballs  (+ $25 delivery)
+🎉 Party Pack  — $125   | ~30 min   | 30 snoballs  (+ $25 delivery)
+🏡 Block Party — $225   | ~1 hour   | 60 snoballs
+🎪 Full Event  — $350   | 1–1.5 hrs | 100 snoballs
+=======================================
+Everything included: truck, staff, all 24 flavors,
+cups, spoons, setup & full cleanup. You do nothing.
 
-READY TO BOOK NOW?
-→ Visit: https://www.awesomesnoballs.com/booking
-→ Pay deposit: https://square.link/u/zYriSyOu
+ADD-ONS TO MAKE IT EXTRA SPECIAL:
+• Hot Fresh Mini Donuts (State Fair style) — from $300
+• Fresh Squeezed Lemonade — from $150
+• Cotton Candy — $3.00/guest
+• Ice Cream Bars (Drumstick/Nestlé) — $3.50/guest
+• Popcorn — $2.00/guest
 
-Questions? Call/text us anytime: 443-281-3331
-— Mike & The Awesome Snoballs Team 🍧`;
+BOOK RIGHT NOW:
+→ Booking form: www.awesomesnoballs.com/booking
+→ Pay deposit:  https://square.link/u/zYriSyOu
+
+📞 Can't wait? Call or text Mike: 443-281-3331
+
+— Mike & The Awesome Snoballs Team 🍧
+Maryland's #1 Mobile Snoball Truck
+www.awesomesnoballs.com`;
 
     try {
       await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
