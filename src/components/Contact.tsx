@@ -11,14 +11,101 @@ export default function Contact() {
     setSending(true);
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name  = data.get("name") as string;
-    const email = data.get("email") as string;
+    const name        = data.get("name")             as string;
+    const email       = data.get("email")            as string;
+    const phone       = data.get("Phone Number")     as string;
+    const inquiryType = data.get("Inquiry Type")     as string;
+    const eventDate   = data.get("Event Date")       as string;
+    const guests      = data.get("Expected Guests")  as string;
+
+    const isBooking = inquiryType.includes("Book") || inquiryType.includes("Party");
+    const isSchool  = inquiryType.includes("School") || inquiryType.includes("Field") || inquiryType.includes("Fundraiser");
+
+    let autoResponse = "";
+
+    if (isBooking) {
+      autoResponse = `Hi ${name}! 🍧
+
+We got your inquiry! Mike will personally call or text you at ${phone} within a few hours to check availability and go over pricing.
+
+⚡ SECURE YOUR DATE RIGHT NOW — PAY DEPOSIT:
+Summer 2026 dates are filling up fast — don't lose yours!
+→ https://square.link/u/zYriSyOu
+${eventDate ? `\nYour requested date: ${eventDate}` : ""}${guests ? `\nExpected guests: ${guests}` : ""}
+
+OUR PARTY PACKAGES:
+🍧 Quick Stop   — $75  / 30 min  / up to 15 servings
+🍧 Party Pack   — $125 / 1 hour  / up to 30 servings
+🍧 Block Party  — $225 / 2 hours / up to 60 servings
+🍧 Full Event   — $350 / 3 hours / up to 100 servings
+
+Everything included: truck, staff, all 24 flavors, cups, spoons, setup & full cleanup.
+
+ADD-ONS AVAILABLE:
+• Hot Mini Donuts (State Fair style) — from $300
+• Fresh Squeezed Lemonade — from $150
+• Cotton Candy — $3.00/guest
+• Ice Cream Bars (Drumstick/Nestlé) — $3.50/guest
+• Popcorn — $2.00/guest
+
+Can't wait? Call or text Mike directly:
+📞 443-281-3331
+🌐 www.awesomesnoballs.com/booking
+
+— Mike & The Awesome Snoballs Team 🍧
+Maryland's #1 Mobile Snoball Truck`.trim();
+    } else if (isSchool) {
+      autoResponse = `Hi ${name}! 🍧
+
+Thanks for reaching out about a school event! Mike will call or text you at ${phone} within a few hours to go over options and hold your date.
+${eventDate ? `\nYour requested date: ${eventDate}` : ""}${guests ? `\nExpected students: ${guests}` : ""}
+
+SCHOOL PACKAGES (flat-rate, every student included):
+🏫 Field Day          — $200 / 1 hour  / up to 40 students
+🏫 School Celebration — $350 / 2 hours / up to 80 students
+🏫 Full Day Event     — $650 / 4 hours / up to 175 students
+   Additional students: $5.00 each
+
+FREE FUNDRAISER OPTION:
+We come at zero cost to your school. Students pay $4–$5 each and your school keeps 25% of every dollar collected. No upfront cost, no risk.
+
+ADD-ONS FOR SCHOOLS:
+• Ice Cream Bars — $3.50/student
+• Cotton Candy — $3.00/student
+• Popcorn — $2.00/student
+• Hot Mini Donuts — from $400
+• Fresh Squeezed Lemonade — from $250
+
+📞 Call or text Mike: 443-281-3331
+🌐 www.awesomesnoballs.com/schools
+
+— Mike & The Awesome Snoballs Team 🍧`.trim();
+    } else {
+      autoResponse = `Hi ${name}! 🍧
+
+Thanks for reaching out to Awesome Snoballs! Mike will get back to you at ${phone} within a few hours.
+
+Here's a quick look at what we offer:
+🍧 Party packages from $75 — birthdays, block parties, pool parties, corporate events
+🏫 School packages from $200 — field days, carnivals, end-of-year events
+🍩 Hot Mini Donuts from $300
+🍋 Fresh Squeezed Lemonade from $150
+🍬 Cotton Candy, Ice Cream Bars & Popcorn available as add-ons
+
+24 flavors including Baltimore's famous Egg Custard.
+Serving Baltimore, MD, DC and all of DMV!
+
+📞 Call or text Mike: 443-281-3331
+🌐 www.awesomesnoballs.com
+
+— Mike & The Awesome Snoballs Team 🍧`.trim();
+    }
 
     // Owner notification + customer CC/auto-reply via FormSubmit
     const formData = new FormData(form);
     formData.set("_subject",      `🍧 NEW INQUIRY — ${name}`);
     formData.set("_cc",           email);
-    formData.set("_autoresponse", `Hi ${name},\n\nThanks for reaching out to Awesome Snoballs! We received your message and will get back to you within 24 hours.\n\nQuestions? Call or text us anytime at 443-281-3331.\n\n— The Awesome Snoballs Team\nawesomesnoballs@yahoo.com`);
+    formData.set("_autoresponse", autoResponse);
     formData.set("_template",     "table");
     formData.set("_captcha",      "false");
     await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {

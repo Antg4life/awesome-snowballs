@@ -74,17 +74,28 @@ function BookingForm() {
       ? `$${pkgDetails.price} (${pkgDetails.duration} · ${pkgDetails.servings})`
       : "Custom quote — we will confirm pricing within 24 hours";
 
+    const guestRecommendation =
+      guests === "Under 50"   ? "Party Pack — $125 / 1 hour / up to 30 servings (or Quick Stop $75 for very small groups)"
+      : guests === "50–100"   ? "Block Party — $225 / 2 hours / up to 60 servings"
+      : guests === "100–150"  ? "Full Event — $350 / 3 hours / up to 100 servings"
+      :                         "Full Event ($350) or Custom — we'll confirm pricing for your group size";
+
+    const packageSection = pkgKey === "Not sure yet"
+      ? `You said: Not sure yet — help me pick!\n💡 Based on ${guests} guests, Mike recommends:\n   ${guestRecommendation}`
+      : `Package:     ${pkgDetails.label}\nEst. Price:  ${priceLine}`;
+
     const bookingSummary = `Hi ${name}! 🍧
 
-Thank you for choosing Awesome Snoballs! We received your booking request and will confirm your date within 24 hours.
+We got your booking request — Mike will personally call or text you at ${phone} within a few hours to confirm your date and finalize everything.
 
-YOUR BOOKING SUMMARY
+⚡ SECURE YOUR DATE RIGHT NOW — PAY DEPOSIT:
+Summer 2026 weekends are filling up fast. A deposit locks your date.
+→ https://square.link/u/zYriSyOu
+
+YOUR EVENT DETAILS
 =======================================
 Name:        ${name}
 Phone:       ${phone}
-Email:       ${email}
-
-EVENT DETAILS
 Event Type:  ${evType}
 Date:        ${evDate}
 Start Time:  ${evTime}
@@ -92,30 +103,33 @@ Duration:    ${dur}
 Guests:      ${guests}
 Address:     ${fullAddress}
 
-PACKAGE & ESTIMATED PRICING
-Package:     ${pkgDetails.label}
-Est. Price:  ${priceLine}
+PACKAGE & PRICING
+${packageSection}
 Notes:       ${notes || "None"}
 
+WANT TO ADD ON?
+• Hot Mini Donuts (State Fair style) — from $300
+• Fresh Squeezed Lemonade — from $150
+• Cotton Candy — $3.00/guest
+• Ice Cream Bars (Drumstick/Nestlé) — $3.50/guest
+• Popcorn — $2.00/guest
+Just mention any add-ons when Mike calls!
+
 =======================================
+WHAT HAPPENS NEXT:
 
-NEXT STEPS — IMPORTANT:
-
-1️⃣  PAY YOUR DEPOSIT TO HOLD YOUR DATE
-    Your date is NOT held until a deposit is received.
-    Dates book up fast in summer — secure yours now:
+1️⃣  PAY DEPOSIT — date is NOT held until deposit received
     → https://square.link/u/zYriSyOu
 
-2️⃣  WE CONFIRM WITHIN 24 HOURS
-    We'll call or text ${phone} to confirm availability,
-    finalize pricing, and answer any questions.
+2️⃣  MIKE CALLS/TEXTS YOU — usually within a few hours
+    He'll confirm availability, pricing & answer any questions.
 
 3️⃣  WE SHOW UP & HANDLE EVERYTHING
-    We bring the truck, all 24 flavors, cups, spoons,
-    setup & breakdown. Your only job is to enjoy it!
+    Truck · Staff · 24 flavors · Cups · Spoons · Setup · Cleanup
+    Your only job is to enjoy the smiles!
 
 =======================================
-Questions? Call or text us anytime:
+Can't wait? Call or text Mike directly:
 📞 443-281-3331
 ✉️ awesomesnoballs@yahoo.com
 🌐 www.awesomesnoballs.com
