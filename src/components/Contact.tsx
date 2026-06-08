@@ -17,6 +17,7 @@ export default function Contact() {
     const inquiryType = data.get("Inquiry Type")     as string;
     const eventDate   = data.get("Event Date")       as string;
     const guests      = data.get("Expected Guests")  as string;
+    const address     = data.get("Event Address")    as string;
 
     const isBooking = inquiryType.includes("Book") || inquiryType.includes("Party");
     const isSchool  = inquiryType.includes("School") || inquiryType.includes("Field") || inquiryType.includes("Fundraiser");
@@ -112,6 +113,19 @@ Serving Baltimore, MD, DC and all of DMV!
       method:  "POST",
       headers: { Accept: "application/json" },
       body:    formData,
+    }).catch(() => {});
+
+    await fetch("/api/mailchimp-subscribe", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        firstName: name.split(" ")[0],
+        lastName:  name.split(" ").slice(1).join(" "),
+        phone,
+        address,
+        tag: isSchool ? "school-lead" : "party-lead",
+      }),
     }).catch(() => {});
 
     setSending(false);

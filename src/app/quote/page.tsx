@@ -122,7 +122,32 @@ export default function QuotePage() {
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
           <h2 className="font-bold text-brand-dark text-xl mb-6">Submit Your Quote Request</h2>
           <form
-            action="https://formsubmit.co/1009ffda7af9208cc9b7d97e7f93af42"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const data = new FormData(form);
+
+              await fetch("https://formsubmit.co/ajax/1009ffda7af9208cc9b7d97e7f93af42", {
+                method:  "POST",
+                headers: { Accept: "application/json" },
+                body:    data,
+              }).catch(() => {});
+
+              await fetch("/api/mailchimp-subscribe", {
+                method:  "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  email:     data.get("email"),
+                  firstName: (data.get("name") as string)?.split(" ")[0],
+                  lastName:  (data.get("name") as string)?.split(" ").slice(1).join(" "),
+                  phone:     data.get("phone"),
+                  address:   data.get("location"),
+                  tag:       "school-lead",
+                }),
+              }).catch(() => {});
+
+              window.location.href = "https://www.awesomesnoballs.com/thank-you/";
+            }}
             method="POST"
             className="space-y-5"
           >

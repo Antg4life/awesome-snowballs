@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.awesomesnoballs.com"),
   title: "Awesome Snoballs | Maryland's #1 Mobile Snoball Truck | Summer 2026 Booking Open",
   description: "Book Maryland's #1 mobile snoball truck for summer 2026! Birthday parties, block parties, summer camps, festivals & school events. 24 flavors including Egg Custard. Serving MD, DC & DMV. Call 443-281-3331.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: ["snoball truck Maryland", "shaved ice truck Baltimore", "mobile snoball truck summer 2026", "birthday party snoball truck", "block party food truck Maryland", "summer camp food vendor Maryland", "Hawaiian shaved ice Baltimore", "egg custard snoball Baltimore", "snoball truck for hire DMV", "pool party food truck Maryland", "festival food vendor Maryland", "shaved ice truck near me", "book snoball truck Baltimore", "summer event food truck DC", "awesome snoballs"],
   openGraph: {
     title: "Awesome Snoballs | Maryland's #1 Mobile Snoball Truck",

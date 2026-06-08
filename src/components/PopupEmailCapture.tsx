@@ -85,6 +85,20 @@ www.awesomesnoballs.com`;
       });
     } catch (_) {}
 
+    try {
+      await fetch("/api/mailchimp-subscribe", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName: name.split(" ")[0],
+          lastName:  name.split(" ").slice(1).join(" "),
+          phone,
+          tag: "party-lead",
+        }),
+      });
+    } catch (_) {}
+
     setLoading(false);
     setSubmitted(true);
     sessionStorage.setItem("popup-dismissed", "true");

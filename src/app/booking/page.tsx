@@ -153,6 +153,19 @@ Maryland's #1 Mobile Snoball Truck
       body:    ownerData,
     }).catch(() => {});
 
+    await fetch("/api/mailchimp-subscribe", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        firstName: name.split(" ")[0],
+        lastName:  name.split(" ").slice(1).join(" "),
+        phone:     data.get("Phone Number"),
+        address:   fullAddress,
+        tag:       "party-lead",
+      }),
+    }).catch(() => {});
+
     setSending(false);
     setSent(true);
   };

@@ -1,3 +1,15 @@
+export const metadata = {
+  title: "Thank You — Awesome Snoballs",
+  description: "Thanks for reaching out to Awesome Snoballs! We'll be in touch within 24 hours to confirm your event details.",
+  alternates: {
+    canonical: "/thank-you/",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-light/30 to-white flex items-center justify-center py-20">

@@ -1,6 +1,9 @@
 export const metadata = {
   title: "FAQ — Awesome Snoballs | Maryland Mobile Snoball Truck",
   description: "Frequently asked questions about booking Awesome Snoballs for your event. Pricing, flavors, service area, deposits and more.",
+  alternates: {
+    canonical: "/faq/",
+  },
 };
 
 const faqs = [
@@ -57,6 +60,23 @@ const faqs = [
 export default function FaqPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-light/30 to-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a,
+              },
+            })),
+          }),
+        }}
+      />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-brand-blue to-brand-cyan py-20 px-4 text-center">

@@ -172,6 +172,14 @@ const events = [
   { icon: "☀️", label: "Spirit Nights" },
 ];
 
+export const metadata = {
+  title: "School Events & Field Day Snoball Truck | Awesome Snoballs Maryland",
+  description: "Book Awesome Snoballs for your school field day, carnival, or fundraiser. Flat-rate packages from $200, free fundraiser option, and flavors kids love. Serving MD, DC & DMV schools.",
+  alternates: {
+    canonical: "/schools/",
+  },
+};
+
 export default function SchoolsPage() {
   return (
     <main className="min-h-screen bg-white">

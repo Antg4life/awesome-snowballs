@@ -14,7 +14,7 @@ export default function Hero() {
     >
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         {/* Urgency badge */}
         <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-dark px-5 py-2.5 rounded-full text-sm font-black mb-6 animate-fade-in shadow-xl">
           <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
