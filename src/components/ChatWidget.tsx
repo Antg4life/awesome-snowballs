@@ -23,7 +23,7 @@ const faqs: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["event", "party", "book", "booking", "hire", "reserve"],
-    answer: "We'd love to come to your event! Our event packages start at $350 for 2 hours (up to 50 servings). Contact us at awesomesnoballs@yahoo.com or call 443-281-3331 to book! 🎉",
+    answer: "We'd love to come to your event! Our event packages start at $125 for a Quick Stop (up to 15 snoballs) up to $475 for a Full Event (up to 100 snoballs). Contact us at awesomesnoballs@yahoo.com or call 443-281-3331 to book! 🎉",
   },
   {
     keywords: ["school", "fundraiser", "pta", "students"],

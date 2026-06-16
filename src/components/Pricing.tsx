@@ -14,15 +14,15 @@ const partyPackages = [
     tagline:     "Birthday parties & small backyard events",
     duration:    "~15 Min",
     servings:    "Up to 15 Snoballs",
-    price:       "$75",
-    perServing:  "$5 / snoball",
+    price:       "$125",
+    perServing:  "$8.33 / snoball",
     popular:     false,
     badge:       "",
     deliveryFee: true,
     features:    [
       "~15-minute service",
       "Up to 15 snoballs",
-      "All 24 flavors",
+      "All 20 flavors",
       "Cups & spoons included",
     ],
   },
@@ -32,15 +32,15 @@ const partyPackages = [
     tagline:     "Most popular for backyard parties",
     duration:    "~30 Min",
     servings:    "Up to 30 Snoballs",
-    price:       "$125",
-    perServing:  "$4.17 / snoball",
+    price:       "$200",
+    perServing:  "$6.67 / snoball",
     popular:     true,
     badge:       "Best Value",
     deliveryFee: true,
     features:    [
       "~30-minute service",
       "Up to 30 snoballs",
-      "All 24 flavors",
+      "All 20 flavors",
       "Cups & spoons included",
       "Setup & breakdown included",
     ],
@@ -51,15 +51,15 @@ const partyPackages = [
     tagline:     "Neighborhood events & cookouts",
     duration:    "~1 Hour",
     servings:    "Up to 60 Snoballs",
-    price:       "$225",
-    perServing:  "$3.75 / snoball",
+    price:       "$325",
+    perServing:  "$5.42 / snoball",
     popular:     false,
     badge:       "",
     deliveryFee: false,
     features:    [
       "~1 hour of service",
       "Up to 60 snoballs",
-      "All 24 flavors",
+      "All 20 flavors",
       "Cups & spoons included",
       "Setup & breakdown included",
       "Event signage",
@@ -71,15 +71,15 @@ const partyPackages = [
     tagline:     "Festivals, fairs & large parties",
     duration:    "1–1.5 Hours",
     servings:    "Up to 100 Snoballs",
-    price:       "$350",
-    perServing:  "$3.50 / snoball",
+    price:       "$475",
+    perServing:  "$4.75 / snoball",
     popular:     false,
     badge:       "",
     deliveryFee: false,
     features:    [
       "1 to 1.5 hours of service",
       "Up to 100 snoballs",
-      "All 24 flavors",
+      "All 20 flavors",
       "Cups & spoons included",
       "Setup & breakdown included",
       "Event signage",
@@ -306,7 +306,7 @@ export default function Pricing() {
           {/* Value banner */}
           <div className="bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl px-6 py-4 mb-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-white text-center">
             <span className="text-2xl">🏆</span>
-            <p className="font-bold text-lg">More snoballs. Lower prices. All 24 flavors.</p>
+            <p className="font-bold text-lg">More snoballs. Lower prices. All 20 flavors.</p>
             <a
               href="/booking/"
               className="shrink-0 px-6 py-2 bg-brand-yellow text-brand-dark font-bold rounded-full hover:opacity-90 transition-opacity text-sm"
@@ -478,7 +478,7 @@ export default function Pricing() {
                     "Students pay $4–$5 per snoball on-site",
                     "Your school earns 25% of total sales",
                     "Great for field days, carnivals & spirit nights",
-                    "All 24 flavors served fresh on-site",
+                    "All 20 flavors served fresh on-site",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm text-white/90">
                       <span className="mt-0.5 w-4 h-4 bg-white/25 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
@@ -542,7 +542,7 @@ export default function Pricing() {
                   <div className="grid grid-cols-2 gap-1.5">
                     {[
                       "Truck, staff & all equipment",
-                      "All 24 flavors",
+                      "All 20 flavors",
                       "Cups, spoons & napkins",
                       "Setup & breakdown",
                       "No surprise fees",

@@ -4,10 +4,10 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const PACKAGES: Record<string, { label: string; price: number | null; duration: string; servings: string; hours: string }> = {
-  "Quick Stop":   { label: "Quick Stop",                  price: 75,   duration: "~15 min",      servings: "Up to 15 snoballs",  hours: "" },
-  "Party Pack":   { label: "Party Pack",                  price: 125,  duration: "~30 min",      servings: "Up to 30 snoballs",  hours: "" },
-  "Block Party":  { label: "Block Party",                 price: 225,  duration: "~1 hour",      servings: "Up to 60 snoballs",  hours: "" },
-  "Full Event":   { label: "Full Event",                  price: 350,  duration: "1–1.5 hours",  servings: "Up to 100 snoballs", hours: "" },
+  "Quick Stop":   { label: "Quick Stop",                  price: 125,  duration: "~15 min",      servings: "Up to 15 snoballs",  hours: "" },
+  "Party Pack":   { label: "Party Pack",                  price: 200,  duration: "~30 min",      servings: "Up to 30 snoballs",  hours: "" },
+  "Block Party":  { label: "Block Party",                 price: 325,  duration: "~1 hour",      servings: "Up to 60 snoballs",  hours: "" },
+  "Full Event":   { label: "Full Event",                  price: 475,  duration: "1–1.5 hours",  servings: "Up to 100 snoballs", hours: "" },
   "School":       { label: "School / Fundraiser",         price: null, duration: "TBD",          servings: "Custom",             hours: "" },
   "Custom":       { label: "Custom Quote",                price: null, duration: "TBD",          servings: "Custom",             hours: "" },
   "Not sure yet": { label: "Not sure yet — help me pick!", price: null, duration: "TBD",         servings: "TBD",                hours: "" },
