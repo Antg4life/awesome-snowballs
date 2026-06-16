@@ -40,6 +40,16 @@ function BookingForm() {
   const [packageVal, setPackage]  = useState(pkgParam);
   const [phone, setPhone]         = useState("");
   const [duration, setDuration]   = useState("");
+  const [timeRaw, setTimeRaw]     = useState("");
+  const [time12, setTime12]       = useState("");
+
+  function convertTo12Hour(val: string) {
+    if (!val) return "";
+    const [h, m] = val.split(":").map(Number);
+    const ampm = h >= 12 ? "PM" : "AM";
+    const hour = h % 12 || 12;
+    return `${hour}:${String(m).padStart(2, "0")} ${ampm}`;
+  }
 
   // Auto-fill duration when a package with a fixed duration is selected
   useEffect(() => {
@@ -293,8 +303,14 @@ Maryland's #1 Mobile Snoball Truck
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Event Start Time *</label>
-                <input type="time" name="Event Start Time" required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700" />
+                <input
+                  type="time"
+                  required
+                  value={timeRaw}
+                  onChange={e => { setTimeRaw(e.target.value); setTime12(convertTo12Hour(e.target.value)); }}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-gray-700"
+                />
+                <input type="hidden" name="Event_Start_Time" value={time12} />
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">

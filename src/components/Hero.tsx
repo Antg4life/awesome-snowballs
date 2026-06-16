@@ -34,7 +34,7 @@ export default function Hero() {
           Maryland&apos;s #1 Mobile Snoball Truck 🍧
         </p>
         <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          24 flavors including Baltimore&apos;s famous Egg Custard. We come to YOU —
+          20 flavors including Baltimore&apos;s famous Egg Custard. We come to YOU —
           birthday parties, school events, block parties, camps &amp; festivals across MD, DC &amp; DMV.
         </p>
 
@@ -66,7 +66,7 @@ export default function Hero() {
         {/* Stats row */}
         <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.9s" }}>
           {[
-            { value: "24",   label: "Flavors" },
+            { value: "20",   label: "Flavors" },
             { value: "5★",   label: "Rated" },
             { value: "DMV",  label: "Area" },
           ].map((stat) => (
