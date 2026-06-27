@@ -9,7 +9,7 @@ export const metadata = {
 const faqs = [
   {
     q: "How much does it cost to book the Awesome Snoballs truck?",
-    a: "Our school event pricing starts at $3 per student during March, April & May. For private events, packages start at $125 for a Quick Stop (up to 15 snoballs) up to $475 for a Full Event (up to 100 snoballs). Contact us for a custom quote based on your event size and date.",
+    a: "Our school event pricing starts at $3 per student during March, April & May. For private events, packages start at $125 for a Quick Stop (up to 15 snoballs) up to $475 for a Full Event (up to 100 snoballs). Block Party is $350 for 1 hour (up to 60 snoballs). Contact us for a custom quote based on your event size and date.",
   },
   {
     q: "What areas do you serve?",
