@@ -10,6 +10,9 @@ export default function PopupEmailCapture() {
   const [phone,     setPhone]     = useState("");
   const [email,     setEmail]     = useState("");
   const [date,      setDate]      = useState("");
+  const [eventType, setEventType] = useState("");
+  const [guests,    setGuests]    = useState("");
+  const [zip,       setZip]       = useState("");
 
   useEffect(() => {
     if (sessionStorage.getItem("popup-dismissed")) return;
@@ -34,34 +37,38 @@ export default function PopupEmailCapture() {
     setLoading(true);
     const autoReply = `Hi ${name}! 🍧
 
-We got your availability request${date ? ` for ${date}` : ""}! Mike will personally call or text you at ${phone} within a few hours to confirm your date.
+We got your availability request${date ? ` for ${date}` : ""}! Mike will personally call you at ${phone} within a few hours to confirm your date and answer any questions.
 
 ⚡ SECURE YOUR DATE NOW — PAY DEPOSIT:
-Summer 2026 weekends are going fast. A deposit locks your date before someone else takes it.
+Summer 2026 weekends are filling fast. A $100 deposit locks your date before someone else takes it.
 → https://square.link/u/zYriSyOu
 
 OUR PARTY PACKAGES:
 =======================================
-⚡ Quick Stop   — $75    | ~15 min   | 15 snoballs  (+ $25 delivery)
-🎉 Party Pack  — $125   | ~30 min   | 30 snoballs  (+ $25 delivery)
-🏡 Block Party — $225   | ~1 hour   | 60 snoballs
-🎪 Full Event  — $350   | 1–1.5 hrs | 100 snoballs
+⚡ Quick Stop   — $125  | ~15 min   | Up to 15 snoballs
+🎉 Party Pack  — $225  | ~30 min   | Up to 30 snoballs
+🏡 Block Party — $350  | ~1 hour   | Up to 60 snoballs
+🎪 Full Event  — $475  | 1–1.5 hrs | Up to 100 snoballs
 =======================================
-Everything included: truck, staff, all 24 flavors,
+Everything included: truck, staff, all 20 flavors
+(including Baltimore's famous Egg Custard!),
 cups, spoons, setup & full cleanup. You do nothing.
 
 ADD-ONS TO MAKE IT EXTRA SPECIAL:
-• Hot Fresh Mini Donuts (State Fair style) — from $300
-• Fresh Squeezed Lemonade — from $150
+• Hot Fresh Mini Donuts (State Fair style) — ask for pricing
+• Fresh Squeezed Lemonade — ask for pricing
 • Cotton Candy — $3.00/guest
 • Ice Cream Bars (Drumstick/Nestlé) — $3.50/guest
 • Popcorn — $2.00/guest
 
 BOOK RIGHT NOW:
 → Booking form: www.awesomesnoballs.com/booking
-→ Pay deposit:  https://square.link/u/zYriSyOu
+→ Pay $100 deposit: https://square.link/u/zYriSyOu
 
-📞 Can't wait? Call or text Mike: 443-281-3331
+After paying your deposit, please email us to confirm:
+awesomesnoballs@yahoo.com
+
+📞 Questions? Call Mike: 443-281-3331
 
 — Mike & The Awesome Snoballs Team 🍧
 Maryland's #1 Mobile Snoball Truck
@@ -72,15 +79,18 @@ www.awesomesnoballs.com`;
         method:  "POST",
         headers: { Accept: "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject:      `🍧 AVAILABILITY REQUEST — ${name} | ${date || "Date TBD"}`,
-          _cc:           email,
-          _autoresponse: autoReply,
-          _captcha:      "false",
-          Name:          name,
-          Phone:         phone,
-          Email:         email,
-          "Event Date":  date || "Not specified",
-          Source:        "Popup — Availability Request",
+          _subject:        `🍧 AVAILABILITY REQUEST — ${name} | ${date || "Date TBD"}`,
+          _cc:             email,
+          _autoresponse:   autoReply,
+          _captcha:        "false",
+          Name:            name,
+          Phone:           phone,
+          Email:           email,
+          "Event Date":    date || "Not specified",
+          "Event Type":    eventType || "Not specified",
+          "Guest Count":   guests || "Not specified",
+          "Zip Code":      zip || "Not specified",
+          Source:          "Popup — Availability Request",
         }),
       });
     } catch (_) {}
@@ -150,10 +160,35 @@ www.awesomesnoballs.com`;
                 className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-brand-blue outline-none transition-all text-gray-700"
               />
               <input
-                type="date" value={date}
+                type="date" value={date} required
                 onChange={(e) => setDate(e.target.value)}
                 min={new Date().toISOString().split("T")[0]}
                 className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-brand-blue outline-none transition-all text-gray-500"
+              />
+              <select required value={eventType} onChange={(e) => setEventType(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-brand-blue outline-none transition-all text-gray-700">
+                <option value="">Event type * (select one)</option>
+                <option>Birthday Party</option>
+                <option>Block Party / Cookout</option>
+                <option>Corporate Event</option>
+                <option>School / Field Day</option>
+                <option>Festival / Community Event</option>
+                <option>Other</option>
+              </select>
+              <select required value={guests} onChange={(e) => setGuests(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-brand-blue outline-none transition-all text-gray-700">
+                <option value="">Expected guests * (select one)</option>
+                <option>Under 25</option>
+                <option>25–50</option>
+                <option>50–100</option>
+                <option>100–200</option>
+                <option>200+</option>
+              </select>
+              <input
+                type="text" required value={zip}
+                onChange={(e) => setZip(e.target.value.replace(/\D/g,"").slice(0,5))}
+                placeholder="Event zip code * (for travel estimate)"
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-brand-blue outline-none transition-all text-gray-700"
               />
               <button type="submit" disabled={loading}
                 className="w-full py-4 bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-bold text-lg rounded-xl hover:opacity-90 transition-all shadow-lg">
@@ -162,7 +197,7 @@ www.awesomesnoballs.com`;
             </form>
 
             <p className="text-center text-xs text-gray-400 mt-3">
-              We&apos;ll text or call you within a few hours. No spam, ever.
+              Mike will call you within a few hours. No spam, ever.
             </p>
             <button onClick={dismiss} className="block w-full text-center text-xs text-gray-400 mt-1 hover:underline">
               No thanks
@@ -173,7 +208,7 @@ www.awesomesnoballs.com`;
             <div className="text-6xl mb-4">🎉</div>
             <h2 className="font-display text-3xl text-brand-dark mb-2">Got It, {name.split(" ")[0]}!</h2>
             <p className="text-gray-600 mb-1">
-              We&apos;ll text or call <strong>{phone}</strong> within a few hours.
+              Mike will call <strong>{phone}</strong> within a few hours.
             </p>
             <p className="text-gray-500 text-sm mb-5">Check your email too — we sent you a confirmation.</p>
             <a href="/booking/"
