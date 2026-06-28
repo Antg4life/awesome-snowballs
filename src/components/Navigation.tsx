@@ -46,9 +46,9 @@ export default function Navigation() {
           >
             <div className="relative">
               <img
-                src="/Snoball%20Logo1.jpg"
+                src="/snoball-logo-badge.jpg"
                 alt="Awesome Snoballs Logo"
-                className="w-12 h-12 rounded-full object-cover group-hover:scale-110 transition-transform shadow-lg"
+                className="w-14 h-14 object-contain group-hover:scale-110 transition-transform"
               />
             </div>
             <div className="flex flex-col leading-none">

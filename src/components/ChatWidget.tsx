@@ -11,7 +11,7 @@ interface Message {
 const faqs: { keywords: string[]; answer: string }[] = [
   {
     keywords: ["flavor", "flavors", "what flavors", "taste"],
-    answer: "We have 24 amazing flavors including our fan favorites: Egg Custard, Tiger's Blood, Bahama Mama, Rainbow, Wedding Cake, Shark Attack, Cherry, Mango, Strawberry, and many more! 🍧",
+    answer: "We have 20 amazing flavors including our fan favorites: Egg Custard, Tiger's Blood, Bahama Mama, Rainbow, Wedding Cake, Shark Attack, Cherry, Mango, Strawberry, and many more! 🍧",
   },
   {
     keywords: ["egg custard", "custard"],
@@ -39,7 +39,7 @@ const faqs: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["phone", "call", "text", "number", "contact"],
-    answer: "You can call or text us at 443-281-3331, or email us at awesomesnoballs@yahoo.com. We typically respond within a few hours! 📞",
+    answer: "You can call us at 443-281-3331, or email us at awesomesnoballs@yahoo.com. We typically respond within a few hours! 📞",
   },
   {
     keywords: ["ice cream", "cream"],
@@ -68,7 +68,7 @@ function getAnswer(input: string): string {
       return faq.answer;
     }
   }
-  return "Great question! For the best answer, reach out to us directly at awesomesnoballs@yahoo.com or call/text 443-281-3331. We'd love to help! 😊";
+  return "Great question! For the best answer, reach out to us directly at awesomesnoballs@yahoo.com or call 443-281-3331. We'd love to help! 😊";
 }
 
 export default function ChatWidget() {
